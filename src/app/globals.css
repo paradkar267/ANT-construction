@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+  --font-heading: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+  --color-bg-main: #F5F5F5;
+  --color-bg-secondary: #FFFFFF;
+  --color-border-subtle: #E5E7EB;
+  --color-orange: #f97316;
+  --color-orange-light: #fb923c;
+  --color-orange-dark: #ea580c;
+  --color-text-main: #0F172A;
+  --color-text-muted: #4B5563;
+  --color-primary: var(--color-bg-main);
+  --color-secondary: var(--color-text-main);
+  --color-accent: #f97316;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #128c7e;
+}
+
+:root {
+  --background: #F5F5F5;
+  --foreground: #0F172A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #737373;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
