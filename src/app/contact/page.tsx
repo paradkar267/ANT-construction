@@ -48,7 +48,7 @@ export default function ContactPage() {
             priority
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F8FAFC]/90 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-50/50 to-gray-50 z-10" />
 
         <div className="relative z-20 text-center text-white px-6 mt-12">
           <motion.span
@@ -79,11 +79,11 @@ export default function ContactPage() {
       </section>
 
       {/* 2. Headline Intro */}
-      <section className="py-20 px-6 lg:px-8 text-center bg-gray-50">
+      <section className="py-20 px-6 lg:px-8 text-center bg-[#0f172a]">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal direction="up">
             <span className="text-accent text-xs font-semibold uppercase tracking-[0.3em] mb-4 block">Inquiries</span>
-            <h2 className="text-3xl sm:text-5xl font-semibold font-heading text-[#0f172a] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-heading text-white tracking-tight">
               Begin Your Premium Journey
             </h2>
             <div className="h-[2px] w-24 bg-accent mx-auto mt-6" />
@@ -92,13 +92,13 @@ export default function ContactPage() {
       </section>
 
       {/* 3. Detail Columns & Form */}
-      <section className="pb-32 bg-gray-50 px-6 lg:px-8">
+      <section className="pb-32 bg-[#0f172a] px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* Column 1: Details & Google Map */}
           <ScrollReveal direction="left" className="space-y-12 text-left">
             <div className="space-y-4">
-              <h3 className="text-3xl font-semibold text-[#0f172a] font-heading">Luxury Sales Gallery</h3>
-              <p className="text-gray-600 leading-relaxed font-sans text-sm">
+              <h3 className="text-3xl font-semibold text-white font-heading">Luxury Sales Gallery</h3>
+              <p className="text-gray-400 leading-relaxed font-sans text-sm">
                 Our sales directors are available for customized site walks, physical model exhibitions, and contract reviews. Speak with us directly or drop an email.
               </p>
             </div>
@@ -111,21 +111,21 @@ export default function ContactPage() {
                 { title: "Headquarters", details: "Nagpur, Maharashtra", sub: "Visit by appointment only", icon: <MapPin className="w-5 h-5" /> },
                 { title: "Office Hours", details: "Mon - Sat, 9AM - 7PM", sub: "Closed on public holidays", icon: <Clock className="w-5 h-5" /> },
               ].map((item) => (
-                <div key={item.title} className="flex gap-4 items-start p-5 bg-white border border-gray-200 rounded-2xl shadow-sm">
-                  <div className="text-accent bg-gray-50 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm border border-gray-200">
+                <div key={item.title} className="flex gap-4 items-start p-5 bg-white/5 border border-white/10 rounded-2xl shadow-sm">
+                  <div className="text-accent bg-[#0f172a] w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm border border-white/10">
                     {item.icon}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#0f172a] text-sm uppercase tracking-wider font-heading">{item.title}</h4>
-                    <p className="text-gray-600 font-medium text-sm mt-1">{item.details}</p>
-                    <p className="text-gray-400 text-xs mt-0.5 font-sans">{item.sub}</p>
+                    <h4 className="font-semibold text-white text-sm uppercase tracking-wider font-heading">{item.title}</h4>
+                    <p className="text-gray-300 font-medium text-sm mt-1">{item.details}</p>
+                    <p className="text-gray-500 text-xs mt-0.5 font-sans">{item.sub}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Google Map */}
-            <div className="relative h-[280px] w-full rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+            <div className="relative h-[280px] w-full rounded-2xl overflow-hidden shadow-lg border border-white/10">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.24264667822!2d79.00247271816578!3d21.12962483861271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a5a3d0f0d5%3A0x2d1be3e46cf23b4!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 width="100%"

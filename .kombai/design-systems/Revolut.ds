@@ -1,0 +1,255 @@
+---
+name: revolut-design
+version: alpha
+description: >
+  Revolut runs a mature in-house design system ("RUI") with a white app canvas, a
+  near-black ink (#1f1f1f), and a deep accent blue (#234fa6) — but its marketing hero
+  is a confident mid-blue gradient panel. The signature voltage is black: the primary
+  CTA is a solid near-black pill ("Download the app", "Move your salary"). Type is the
+  marketing display face Aeonik Pro (Inter as the product/system fallback), set big and
+  tight; UI runs Inter at heavy weights (800 headings). Shapes use a generous radius
+  ladder (2–32px) plus full pills. Signature moves: the blue hero gradient, fully-tokenized
+  semantic colors, a broad fintech color spectrum, and large award/social-proof grids.
+colors:
+  # Brand
+  primary: '#1f1f1f'          # foreground / near-black — primary pill buttons & ink
+  on-primary: '#ffffff'
+  accent: '#234fa6'           # rui-color-accent — deep blue (focus, links)
+  action-blue: '#376cd5'      # action background blue
+  # Surface
+  surface: '#ffffff'          # page / app background
+  surface-grouped: '#f7f7f7'  # grouped background (grey-2)
+  surface-secondary: '#f4f5f6'# grey-5
+  hero-gradient: 'linear-gradient(#4c8acc 0%, #3991d8 100%)' # blue marketing hero panel
+  # Text
+  on-surface: '#1f1f1f'       # primary text
+  on-surface-secondary: 'rgba(31,31,31,0.65)' # grey-tone-20
+  on-surface-tertiary: 'rgba(31,31,31,0.8)'
+  # Hairlines
+  hairline: '#e2e2e7'         # grey-10
+  hairline-soft: '#ebebf0'    # grey-8
+  # Semantic
+  success: '#005f48'          # positive
+  error: '#a90b1a'            # danger / negative
+  warning: '#774915'
+  # Spectrum (fintech category / product accents)
+  blue: '#4275db'
+  cold-blue: '#0666eb'
+  green: '#09be67'
+  deep-purple: '#7952f6'
+  indigo: '#6262d3'
+  pink: '#e950a4'
+  cyan: '#099ea7'
+  orange: '#d97400'
+  red: '#f54c3e'
+  teal: '#00a17a'
+  # Plan metals
+  premium-gradient: 'linear-gradient(180deg, #99a2b3 -6.25%, #2c3c61 100%)'
+typography:
+  marketing-display1:
+    fontFamily: '"Aeonik Pro", "Inter", -apple-system, "Segoe UI", Roboto, sans-serif'
+    fontSize: 56px            # 3.5rem (renders larger on hero, ~83px)
+    fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: -2px       # negative, scales with size
+  marketing-display2:
+    fontFamily: '{typography.marketing-display1.fontFamily}'
+    fontSize: 40px
+    fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: -0.6px
+  heading:                    # product UI heading (Inter)
+    fontFamily: '"Inter", -apple-system, "Segoe UI", Roboto, sans-serif'
+    fontSize: 24px            # heading2 1.5rem
+    fontWeight: 800
+    lineHeight: 1.25
+  subheader:
+    fontFamily: '{typography.heading.fontFamily}'
+    fontSize: 18px
+    fontWeight: 700
+    lineHeight: 1.33
+  body1:
+    fontFamily: '{typography.heading.fontFamily}'
+    fontSize: 16px
+    fontWeight: 500
+    lineHeight: 1.375
+  body2:
+    fontFamily: '{typography.heading.fontFamily}'
+    fontSize: 14px
+    fontWeight: 500
+    lineHeight: 1.43
+  caption:
+    fontFamily: '{typography.heading.fontFamily}'
+    fontSize: 12px
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: 0.18px
+rounded:
+  r4: 4px      # rui-radius-r4
+  r8: 8px
+  r12: 12px    # default control radius
+  r16: 16px    # widget / card radius
+  r24: 24px
+  r32: 32px    # popup
+  full: 9999px # pill buttons
+spacing:        # rem-based (rui-space), base 4px
+  sp100: 4px
+  sp200: 8px
+  sp300: 12px
+  sp400: 16px
+  sp500: 20px
+  sp600: 24px
+  sp800: 32px
+  sp1000: 40px
+components:
+  button-primary:              # "Download the app" / "Move your salary"
+    backgroundColor: '{colors.primary}'
+    textColor: '{colors.on-primary}'
+    typography: '{typography.body1}'
+    rounded: '{rounded.full}'
+    height: '52px'             # rui-size-button-md 3.25rem
+    padding: '0 24px'
+  button-secondary:            # "Reject non-essential cookies"
+    backgroundColor: 'transparent'
+    textColor: '{colors.on-surface}'
+    borderColor: '{colors.primary}'
+    borderWidth: '1.5px'
+    rounded: '{rounded.full}'
+  card:
+    backgroundColor: '{colors.surface-grouped}'
+    rounded: '{rounded.r16}'
+    textColor: '{colors.on-surface}'
+    boxShadow: '{shadows.level2}'
+  plan-card:                   # "Standard / Plus / Premium / Metal"
+    backgroundColor: '{colors.surface}'
+    rounded: '{rounded.r16}'
+    arrow: 'bottom-right → glyph'
+  sales-banner: 'linear-gradient(to right, #1227fd, #6fa0ff)'
+shadows:
+  level1: '0 2px 3px rgba(0,0,0,0.05)'
+  level2: '0 3px 8px rgba(0,0,0,0.1)'
+  level3: '0 3px 30px rgba(0,0,0,0.08)'
+  level4: '0 16px 64px rgba(0,0,0,0.12)'
+motion:
+  easing-default: 'cubic-bezier(0.15, 0.5, 0.5, 1)'
+  easing-toast: 'cubic-bezier(0.175, 0.885, 0.21, 1.65)' # springy
+  duration-sm: 200ms
+  duration-md: 300ms
+  duration-lg: 450ms
+icons:
+  style: outline
+  sizes: { sm: 16px, md: 20px, lg: 24px }
+  color: '{colors.on-surface}'
+---
+
+# Revolut
+
+`revolut-design · alpha`
+
+## Overview
+
+Revolut ships a fully tokenized in-house system ("RUI"). The product/app canvas is white
+with near-black ink (`#1f1f1f`) and a deep brand blue (`accent #234fa6`), but the
+**marketing hero is a confident mid-blue gradient panel** (`#4c8acc → #3991d8`) with
+quiet low-contrast headline text. The dominant action color is **black**: the primary CTA
+is a solid near-black pill ("Download the app", "Move your salary"). Type splits in two —
+the marketing display face is **Aeonik Pro** (set big, weight 500, tight negative
+tracking), while the product UI runs **Inter** at heavy weights (800 headings). The system
+carries a **broad fintech color spectrum** (blue/green/purple/pink/cyan/orange/teal/red…)
+for category and product accents, plus metallic plan gradients (Premium/Metal/Ultra).
+Shapes use a wide radius ladder (2–32px) topped by full pills, soft multi-level shadows,
+and a springy toast easing curve. The tone is premium, global, and trustworthy.
+
+## Colors
+
+**Brand** — everyday primary is near-black `#1f1f1f` (CTA pills + ink). The blue
+`accent #234fa6` drives focus/links, with `action-blue #376cd5` for interactive fills. The
+hero uses the blue gradient; a separate sales banner runs `#1227fd → #6fa0ff`.
+
+**Surface** — white canvas; `surface-grouped #f7f7f7` and `surface-secondary #f4f5f6` for
+grouped/elevated areas. Dark sections (e.g. "Choose your plan") invert to near-black with
+white plan cards.
+
+**Text** — `on-surface #1f1f1f`; secondary/tertiary via alpha (`rgba(31,31,31,0.65 / 0.8)`).
+
+**Hairlines** — `hairline #e2e2e7` / `hairline-soft #ebebf0`.
+
+**Semantic** — `success #005f48`, `error #a90b1a`, `warning #774915`.
+
+**Spectrum** — a large named fintech palette (blue, cold-blue, green, deep-purple, indigo,
+pink, cyan, orange, teal, red) used for product/category accents — never as broad page
+fills. Plan tiers get metallic gradients (Premium/Metal/Ultra).
+
+## Typography
+
+Two families: **Aeonik Pro** for marketing display (fallback Inter), and **Inter** for the
+product UI and body. Closest open-source substitutes: **Inter** throughout, or a geometric
+grotesque for the Aeonik display role. Marketing display is weight **500** with strong
+negative tracking; product headings are heavy **800**; body is **500**.
+
+| Token | Size | Weight | Line-height | Tracking | Usage |
+|---|---|---|---|---|---|
+| marketing-display1 | 56px+ | 500 | 1.0 | −2px | Hero ("Banking & Beyond") |
+| marketing-display2 | 40px | 500 | 1.0 | −0.6px | Section heads ("Your salary, reimagined") |
+| heading | 24px | 800 | 1.25 | 0 | Product UI headings |
+| subheader | 18px | 700 | 1.33 | 0 | Sub-heads |
+| body1 | 16px | 500 | 1.375 | 0 | Body / buttons |
+| body2 | 14px | 500 | 1.43 | 0 | Secondary copy |
+| caption | 12px | 400 | 1.5 | +0.18px | Legal / fine print |
+
+## Layout
+
+Spacing is rem-based on a **4px** unit (sp100…sp1000). A constrained content width
+(`~1000px`) with a 72px nav. The homepage alternates blue/white/black full-width bands; a
+**3-up carousel** of phone mockups, an award grid ("World's Best Digital Bank"), and a
+dark "Choose your plan" stack of white plan cards each with a bottom-right `→` glyph.
+Generous whitespace.
+
+## Elevation & Depth
+
+A 4-level soft shadow ladder (`level1 → level4`, 5–12% black) lifts cards and popovers.
+The brand leans on gradients (hero blue, sales banner, metallic plans) plus subtle shadow;
+nothing harsh. Modals use a 40% black scrim.
+
+## Shapes
+
+Radius ladder **2 / 4 / 8 / 12 / 16 / 24 / 32px** plus **full pills**. Controls default to
+~12px, widgets/cards to 16px, popups to 24–32px, and buttons to full pill. The vocabulary
+is soft and premium.
+
+## Components
+
+- **button-primary** — solid near-black pill, white text, ~52px tall (md).
+- **button-secondary** — transparent pill with 1.5px black outline ("Reject non-essential cookies").
+- **card** — `surface-grouped` fill, 16px radius, soft level-2 shadow.
+- **plan-card** — white rounded card with title, price, blurb, and a bottom-right arrow glyph.
+- **award/proof grid** — multi-column centered text grid of accolades.
+
+## Motion
+
+Durations **200 / 300 / 450 / 900ms** on `cubic-bezier(0.15,0.5,0.5,1)`. Toasts use a
+**springy** `cubic-bezier(0.175,0.885,0.21,1.65)` for a subtle bounce. A 1500ms skeleton
+shimmer covers loading. Motion is smooth and premium; the spring is reserved for small
+notification moments.
+
+## Iconography
+
+Outline icons at 16/20/24px in `on-surface`. The Revolut wordmark is the brand mark; plan
+tiers and product categories carry their own accent colors. Fine print and disclaimers are
+extensive (financial product).
+
+## Do's and Don'ts
+
+- **Do** use near-black pill CTAs as the primary action; reserve the blue gradient for hero/brand bands.
+- **Do** set marketing headlines in Aeonik Pro (weight 500, tight tracking) and UI headings in Inter 800.
+- **Do** use the radius ladder — ~12px controls, 16px cards, full-pill buttons.
+- **Do** use the fintech spectrum only for category/product accents and metallic plan tiers.
+- **Don't** flood pages with saturated spectrum colors; the chrome stays black/white/grey.
+- **Don't** over-shadow; prefer the soft level ladder + gradients.
+- **Don't** drop the heavy 800 weight on product headings — it's the UI voice.
+
+## Known Gaps
+
+- Revolut exposes a comprehensive RUI token set (captured above). Hero display size renders
+  larger than the base 3.5rem token via responsive scaling. "Aeonik Pro" is licensed —
+  substitute a geometric grotesque or Inter.

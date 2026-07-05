@@ -5,6 +5,7 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import { motion } from "framer-motion";
 import { MapPin, CheckCircle } from "lucide-react";
+import NetflixProjectSlider from "@/components/NetflixProjectSlider";
 
 export default function ProjectsPage() {
   const projects = [
@@ -66,14 +67,14 @@ export default function ProjectsPage() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/About.jpg"
+            src="/projects-hero.jpg"
             alt="AT Buildcon Portfolios Banner"
             fill
             className="object-cover brightness-90"
             priority
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F8FAFC]/90 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-gray-50 z-10" />
 
         <div className="relative z-20 text-center text-white px-6 mt-12">
           <motion.span
@@ -117,83 +118,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* 3. Projects Showcase List */}
-      <section className="pb-32 px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto flex flex-col gap-32">
-          {projects.map((project, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div
-                key={project.id}
-                id={`project-${project.id}`}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center scroll-mt-28"
-              >
-                {/* Image layout with custom direction animations */}
-                <ScrollReveal
-                  direction={isEven ? "left" : "right"}
-                  className={`relative h-[320px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl group border border-gray-200 ${
-                    !isEven ? "lg:order-2" : ""
-                  }`}
-                >
-                  <Image
-                    src={project.img}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                  />
-                  <div className="absolute top-6 left-6 bg-[#0B131F]/85 backdrop-blur-sm border border-accent/20 text-[#0f172a] bg-neutral-800 text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-full shadow-md">
-                    {project.badge}
-                  </div>
-                </ScrollReveal>
-
-                {/* Content Panel */}
-                <ScrollReveal
-                  direction={isEven ? "right" : "left"}
-                  className="space-y-6 text-left"
-                >
-                  <span className="text-accent text-xs font-semibold uppercase tracking-[0.2em]">
-                    {project.type}
-                  </span>
-                  <h3 className="text-3xl md:text-4xl font-semibold text-[#0f172a] font-heading tracking-tight leading-tight">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-gray-500 text-sm flex items-center gap-1.5 font-sans font-medium">
-                    <MapPin className="w-4 h-4 text-accent" /> {project.loc}
-                  </p>
-
-                  <p className="text-[#1E293B] font-light text-base leading-relaxed">
-                    {project.desc}
-                  </p>
-
-                  {/* Highlights Grid */}
-                  <div className="pt-4 border-t border-gray-200/60">
-                    <h4 className="text-[#0f172a] text-xs font-semibold uppercase tracking-wider mb-4 font-heading">
-                      Key Highlights
-                    </h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      {project.features.map((feat) => (
-                        <div key={feat} className="flex items-center gap-2 text-xs text-gray-600 font-medium font-sans">
-                          <CheckCircle className="w-4 h-4 text-accent" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-6">
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 border border-accent bg-accent hover:bg-transparent text-[#0f172a] hover:text-accent font-semibold tracking-wider uppercase text-xs px-6 py-3 rounded-full transition-all duration-500"
-                    >
-                      Inquire Details
-                    </Link>
-                  </div>
-                </ScrollReveal>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      <NetflixProjectSlider />
     </div>
   );
 }
