@@ -30,7 +30,7 @@ export default function AboutPage() {
             priority
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#fcfcfc]/50 to-[#fcfcfc] z-10" />
+
 
         <div className="relative z-20 text-center text-white px-6 mt-12 max-w-5xl mx-auto">
           <motion.span
@@ -184,7 +184,7 @@ export default function AboutPage() {
               className="group relative h-[450px] bg-white rounded-md overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500"
             >
               <Image src="/vision-new.jpg" alt="Vision" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-[#0f172a]/70 group-hover:bg-[#0f172a]/80 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 p-10 md:p-14 flex flex-col justify-end text-white">
                 <div className="w-14 h-14 bg-white/10 backdrop-blur-md flex items-center justify-center mb-8 border border-white/20 text-orange-400">
                   <Eye className="w-6 h-6" />
@@ -205,7 +205,7 @@ export default function AboutPage() {
               className="group relative h-[450px] bg-white rounded-md overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500 md:mt-12"
             >
               <Image src="/mission.jpg" alt="Mission" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-[#0f172a]/70 group-hover:bg-[#0f172a]/80 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 p-10 md:p-14 flex flex-col justify-end text-white">
                 <div className="w-14 h-14 bg-white/10 backdrop-blur-md flex items-center justify-center mb-8 border border-white/20 text-orange-400">
                   <Target className="w-6 h-6" />
@@ -250,7 +250,7 @@ export default function AboutPage() {
               className="group border-t border-gray-200 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-start hover:bg-gray-50 transition-colors px-4 md:px-8 -mx-4 md:-mx-8"
             >
               <div className="md:col-span-2">
-                <span className="text-5xl md:text-7xl font-bold text-gray-200 font-heading group-hover:text-orange-500/10 transition-colors">
+                <span className="text-5xl md:text-7xl font-bold text-[#0f172a] font-heading transition-colors group-hover:text-orange-500">
                   {feature.id}
                 </span>
               </div>

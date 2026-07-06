@@ -41,14 +41,14 @@ export default function ContactPage() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/About.jpg"
+            src="/contact-image.jpg"
             alt="Contact AT Buildcon"
             fill
             className="object-cover brightness-90"
             priority
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-50/50 to-gray-50 z-10" />
+
 
         <div className="relative z-20 text-center text-white px-6 mt-12">
           <motion.span
@@ -97,9 +97,9 @@ export default function ContactPage() {
           {/* Column 1: Details & Google Map */}
           <ScrollReveal direction="left" className="space-y-12 text-left">
             <div className="space-y-4">
-              <h3 className="text-3xl font-semibold text-white font-heading">Luxury Sales Gallery</h3>
+              <h3 className="text-3xl font-semibold text-white font-heading">Client Advisory & Support</h3>
               <p className="text-gray-400 leading-relaxed font-sans text-sm">
-                Our sales directors are available for customized site walks, physical model exhibitions, and contract reviews. Speak with us directly or drop an email.
+                Our dedicated team is available to assist you with detailed project specifications, arrange exclusive site visits, and discuss investment opportunities. Connect with us to discover the A&T Buildcon difference.
               </p>
             </div>
 

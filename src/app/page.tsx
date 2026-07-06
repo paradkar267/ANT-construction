@@ -4,19 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, FileText, Download, Play, MessageCircle, Home as HomeIcon, Building2, Factory, Hammer, ClipboardList, LineChart } from "lucide-react";
 import ServicesSlider from "@/components/ServicesSlider";
+import CoverflowCarousel from "@/components/CoverflowCarousel";
+import LatestUpdatesMarquee from "@/components/LatestUpdatesMarquee";
 
 export default function Home() {
   return (
     <div className="bg-white text-[#0f172a] font-sans">
       {/* 1. Hero Section */}
       <section className="relative h-[85vh] w-full bg-white overflow-hidden">
-        <video
-          src="/hero-video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover scale-[1.25] translate-y-10 contrast-[1.15] saturate-[1.2] brightness-105"
+        <Image
+          src="/hero-image.jpg"
+          alt="A&T Buildcon"
+          fill
+          className="object-cover"
+          priority
         />
         {/* Navigation overlay dark gradient for contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/40 z-0" />
@@ -51,9 +52,6 @@ export default function Home() {
             <p>
               Our approach merges structural precision with elegant aesthetics, ensuring that every project not only meets but exceeds the expectations of our stakeholders and residents.
             </p>
-            <Link href="/about" className="inline-flex items-center text-[#1A1A1A] font-bold hover:underline mt-4 tracking-wide">
-              Our Corporate Vision <ChevronRight className="w-4 h-4 ml-1" />
-            </Link>
           </div>
         </div>
       </section>
@@ -120,39 +118,7 @@ export default function Home() {
       </section>
 
       {/* 6. We are more than what you know */}
-      <section className="py-24 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-12">
-             <h3 className="text-3xl font-bold text-[#1A1A1A] max-w-sm font-heading">We are more than what you know</h3>
-             <div className="flex gap-2">
-               <button className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:bg-gray-200">
-                 <ChevronRight className="w-5 h-5 rotate-180" />
-               </button>
-               <button className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:bg-gray-200">
-                 <ChevronRight className="w-5 h-5" />
-               </button>
-             </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { title: "Residential Masterpieces", img: "/projects/Tuljai.png" },
-              { title: "Commercial Hubs", img: "/Hero.jpg" },
-              { title: "Retail Experiences", img: "/About.jpg" },
-              { title: "Smart City Integration", img: "/projects/Sohamdhwani.png" },
-            ].map((item, idx) => (
-              <div key={idx} className="group relative h-[400px] w-full overflow-hidden cursor-pointer">
-                <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h4 className="text-white font-bold text-lg font-heading">{item.title}</h4>
-                  <p className="text-white/80 text-[10px] mt-1 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-opacity">Explore <ArrowRight className="inline w-3 h-3 ml-1" /></p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CoverflowCarousel />
 
       {/* 7. Our Services */}
       <ServicesSlider />
@@ -187,35 +153,8 @@ export default function Home() {
          </div>
       </section>
 
-      {/* 10. Latest Updates Grid */}
-      <section className="py-24 bg-gray-50 border-t border-gray-200 mt-8">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-           <div className="flex justify-between items-end mb-12">
-             <h3 className="text-3xl font-bold text-[#1A1A1A] font-heading">Latest Updates</h3>
-             <Link href="#" className="text-xs uppercase tracking-widest font-bold text-orange-500 hover:underline">View All</Link>
-           </div>
-
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-             {[
-               { cat: "Press Release", title: "A&T Buildcon awards construction contracts worth INR 500 Million", date: "Jan 12, 2025" },
-               { cat: "News", title: "New smart integration partnership with top tech firms", date: "Feb 05, 2025" },
-               { cat: "Press Release", title: "Quarterly earnings exceed expectations by 15%", date: "Mar 10, 2025" },
-               { cat: "News", title: "A&T Buildcon featured in top 10 developers list", date: "Apr 02, 2025" }
-             ].map((update, idx) => (
-               <div key={idx} className="bg-white p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:border-gray-200 transition-colors">
-                 <div>
-                   <span className="text-[10px] text-orange-500 font-bold uppercase tracking-widest block mb-3">{update.cat}</span>
-                   <h4 className="text-lg font-bold text-[#1A1A1A] mb-6 font-heading leading-snug">{update.title}</h4>
-                 </div>
-                 <div className="flex justify-between items-center mt-6 pt-6 border-t border-gray-200">
-                   <span className="text-[11px] text-gray-500 font-semibold">{update.date}</span>
-                   <Link href="#" className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A] hover:underline">Read More</Link>
-                 </div>
-               </div>
-             ))}
-           </div>
-        </div>
-      </section>
+      {/* 10. Latest Updates Marquee */}
+      <LatestUpdatesMarquee />
     </div>
   );
 }

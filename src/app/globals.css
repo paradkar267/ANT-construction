@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
-  --font-heading: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+  --font-sans: var(--font-roboto-slab), 'Roboto Slab', serif;
+  --font-heading: var(--font-roboto-slab), 'Roboto Slab', serif;
   --color-bg-main: #F5F5F5;
   --color-bg-secondary: #FFFFFF;
   --color-border-subtle: #E5E7EB;

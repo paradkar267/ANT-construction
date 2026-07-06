@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, CheckCircle, Play, Info } from "lucide-react";
+import { MapPin, Play, Info } from "lucide-react";
 
 const projects = [
   {
@@ -136,8 +136,7 @@ export default function NetflixProjectSlider() {
                 className="flex flex-wrap gap-4 mb-10"
               >
                 {projects[activeIndex].features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-sm text-white bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400" />
+                  <div key={idx} className="flex items-center text-sm text-white bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
                     {feat}
                   </div>
                 ))}

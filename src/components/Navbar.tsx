@@ -84,7 +84,7 @@ export default function Navbar() {
             {/* CTA Button - Square & Premium */}
             <div className="hidden md:flex items-center">
               <Link
-                href="/contact"
+                href="/schedule-visit"
                 className="flex items-center gap-2 border border-white hover:bg-accent hover:border-accent text-white font-semibold tracking-[0.15em] uppercase text-[10px] px-6 py-3 rounded-none transition-all duration-300 bg-transparent"
               >
                 <Calendar className="w-3.5 h-3.5" />
@@ -133,7 +133,7 @@ export default function Navbar() {
             </nav>
 
             <Link
-              href="/contact"
+              href="/schedule-visit"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 w-full max-w-xs border border-white hover:bg-accent hover:border-accent text-white font-bold tracking-[0.15em] uppercase text-xs py-4 rounded-none transition-all duration-300 bg-transparent"
             >

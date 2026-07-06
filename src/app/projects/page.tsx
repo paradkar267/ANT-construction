@@ -74,7 +74,7 @@ export default function ProjectsPage() {
             priority
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-gray-50 z-10" />
+
 
         <div className="relative z-20 text-center text-white px-6 mt-12">
           <motion.span
