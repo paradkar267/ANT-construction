@@ -43,7 +43,7 @@ const UpdateCard = ({ update, setHoveredTrack, trackId }: { update: any; setHove
             {update.date}
           </span>
           <Link
-            href="#"
+            href="/"
             className="flex items-center text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]"
           >
             Read More
@@ -79,21 +79,7 @@ export default function LatestUpdatesMarquee() {
         }
       );
 
-      gsap.fromTo(
-        headerRef.current?.querySelector(".view-all"),
-        { opacity: 0, x: 30 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          delay: 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-          },
-        }
-      );
+
 
       // 2. Continuous Marquee Logic
       const initMarquee = (trackRef: React.RefObject<HTMLDivElement | null>, direction: 1 | -1, duration: number, trackId: string) => {
@@ -149,12 +135,7 @@ export default function LatestUpdatesMarquee() {
           <h3 className="heading text-4xl md:text-5xl font-bold text-[#1A1A1A] font-heading opacity-0">
             Latest Updates
           </h3>
-          <Link 
-            href="#" 
-            className="view-all opacity-0 flex items-center text-xs uppercase tracking-[0.2em] font-bold text-orange-500 hover:text-orange-600 transition-colors"
-          >
-            View All <ArrowRight className="w-4 h-4 ml-2" />
-          </Link>
+
         </div>
       </div>
 

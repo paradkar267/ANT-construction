@@ -75,7 +75,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           {/* Image & Stat Card */}
           <div className="relative">
-            <div className="relative h-[600px] grid grid-cols-2 grid-rows-2 gap-4">
+            <div className="relative h-[400px] md:h-[600px] grid grid-cols-2 grid-rows-2 gap-4">
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="absolute -bottom-10 -right-10 md:bottom-10 md:-right-16 bg-white p-8 shadow-2xl border border-gray-100 max-w-[280px] z-10"
+              className="absolute bottom-4 right-4 md:bottom-10 md:-right-16 bg-white p-6 md:p-8 shadow-2xl border border-gray-100 max-w-[220px] md:max-w-[280px] z-10"
             >
               <h3 className="text-5xl font-bold font-heading text-[#0f172a] mb-2 flex items-baseline">
                 <AnimatedCounter to={15} />+
@@ -304,7 +304,7 @@ export default function AboutPage() {
       {/* 7. Luxurious Light CTA */}
       <section className="py-32 px-6 lg:px-8 relative bg-white text-[#0f172a] overflow-hidden text-center flex flex-col items-center justify-center border-t border-gray-200">
         {/* Subtle background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[600px] h-[600px] bg-orange-500/5 rounded-full blur-[100px] pointer-events-none" />
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

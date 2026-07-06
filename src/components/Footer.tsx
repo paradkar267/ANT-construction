@@ -182,8 +182,8 @@ export default function Footer() {
         >
           <p>© {new Date().getFullYear()} AT Buildcon. All rights reserved.</p>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-accent transition-colors">Terms of Use</a>
+            <Link href="/" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <Link href="/" className="hover:text-accent transition-colors">Terms of Use</Link>
           </div>
         </motion.div>
       </div>

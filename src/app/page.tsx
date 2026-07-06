@@ -40,7 +40,7 @@ export default function Home() {
       </section>
 
       {/* 2. Intro Section */}
-      <section className="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-16 md:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight font-heading">
             Live Life to the Fullest with A&T Buildcon
@@ -83,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* 5. Latest Launches (Offset) */}
-      <section className="py-24 max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-8">
         <h3 className="text-3xl font-bold text-[#1A1A1A] mb-16 font-heading">Our Latest Launches</h3>
         
         <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 h-auto md:h-[450px]">
@@ -92,7 +92,7 @@ export default function Home() {
              <div className="flex-1">
                <span className="text-orange-500 text-[10px] font-bold uppercase tracking-widest block mb-2">Residential</span>
                <h4 className="text-2xl font-bold text-[#1A1A1A] mb-4 font-heading">Sohamdhwani Smart Living</h4>
-               <Link href="#" className="inline-flex items-center text-xs font-bold text-[#1A1A1A] uppercase tracking-wider hover:underline">
+               <Link href="/projects" className="inline-flex items-center text-xs font-bold text-[#1A1A1A] uppercase tracking-wider hover:underline">
                  Learn More <ArrowRight className="w-3 h-3 ml-1" />
                </Link>
              </div>
@@ -106,7 +106,7 @@ export default function Home() {
             <div className="flex-1">
                <span className="text-orange-400 text-[10px] font-bold uppercase tracking-widest block mb-2">Premium Estate</span>
                <h4 className="text-2xl font-bold text-[#0f172a] mb-4 font-heading">Audumbar Residences</h4>
-               <Link href="#" className="inline-flex items-center text-xs font-bold text-[#0f172a] uppercase tracking-wider hover:underline">
+               <Link href="/projects" className="inline-flex items-center text-xs font-bold text-[#0f172a] uppercase tracking-wider hover:underline">
                  Learn More <ArrowRight className="w-3 h-3 ml-1" />
                </Link>
              </div>
@@ -126,7 +126,7 @@ export default function Home() {
 
 
       {/* 9. What's New */}
-      <section className="py-24 max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-8">
          <div className="flex justify-between items-center mb-12">
             <h3 className="text-3xl font-bold text-[#1A1A1A] font-heading">What&apos;s New at A&T Buildcon</h3>
             <div className="flex gap-2">
@@ -146,7 +146,7 @@ export default function Home() {
            <div className="absolute -bottom-8 left-8 right-8 sm:right-auto sm:w-[450px] bg-white p-8 shadow-xl border border-gray-200">
               <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-4">Press Release</span>
               <h4 className="text-2xl font-bold text-[#1A1A1A] mb-6 font-heading leading-snug">A&T Buildcon announces the launch of Tuljai Imperials Phase II</h4>
-              <Link href="#" className="inline-flex items-center text-[10px] font-bold text-orange-500 uppercase tracking-widest">
+              <Link href="/" className="inline-flex items-center text-[10px] font-bold text-orange-500 uppercase tracking-widest">
                  Read More <ArrowRight className="w-3 h-3 ml-1" />
               </Link>
            </div>
