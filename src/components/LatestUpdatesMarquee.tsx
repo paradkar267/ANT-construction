@@ -64,20 +64,23 @@ export default function LatestUpdatesMarquee() {
   const { contextSafe } = useGSAP(
     () => {
       // 1. Scroll Animations for Header
-      gsap.fromTo(
-        headerRef.current?.querySelector(".heading"),
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-          },
-        }
-      );
+      const heading = headerRef.current?.querySelector(".heading");
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 80%",
+            },
+          }
+        );
+      }
 
 
 
