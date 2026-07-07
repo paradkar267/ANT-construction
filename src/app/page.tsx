@@ -129,14 +129,6 @@ export default function Home() {
       <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-8">
          <div className="flex justify-between items-center mb-12">
             <h3 className="text-3xl font-bold text-[#1A1A1A] font-heading">What&apos;s New at A&T Buildcon</h3>
-            <div className="flex gap-2">
-               <button className="w-8 h-8 border border-gray-200 flex items-center justify-center hover:bg-gray-200">
-                 <ChevronRight className="w-4 h-4 rotate-180" />
-               </button>
-               <button className="w-8 h-8 border border-gray-200 flex items-center justify-center hover:bg-gray-200">
-                 <ChevronRight className="w-4 h-4" />
-               </button>
-             </div>
          </div>
          
          <div className="relative h-[400px] w-full">
