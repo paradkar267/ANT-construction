@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Factory, Building2, HomeIcon, ArrowRight, ShieldCheck, HardHat, Hammer, Leaf, Settings, PenTool } from "lucide-react";
 
-const fadeUpVariant = {
+const fadeUpVariant: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 };
 
 const staggerContainer = {
@@ -52,7 +52,7 @@ const specialized = [
 export default function ServicesPage() {
   return (
     <div className="bg-[#111111] text-[#f5f5f5] font-sans selection:bg-accent selection:text-black">
-      
+
       {/* 1. Hero Banner */}
       <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
@@ -65,7 +65,7 @@ export default function ServicesPage() {
           />
         </div>
         <div className="absolute inset-0 bg-black/70 z-0" />
-        
+
         <div className="relative z-10 text-center px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -86,26 +86,26 @@ export default function ServicesPage() {
       {/* 2. Main Services */}
       <section className="py-24 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
             className="space-y-24"
           >
             {services.map((service, idx) => (
-              <motion.div 
-                key={service.title} 
+              <motion.div
+                key={service.title}
                 variants={fadeUpVariant}
                 className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
               >
                 <div className="w-full lg:w-1/2 relative aspect-[4/3] group overflow-hidden border border-white/5">
-                  <Image 
-                    src={service.image} 
-                    alt={service.title} 
-                    fill 
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
-                
+
                 <div className="w-full lg:w-1/2">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-accent">
@@ -115,7 +115,7 @@ export default function ServicesPage() {
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">{service.title}</h2>
                   <p className="text-neutral-400 leading-relaxed mb-8">{service.desc}</p>
-                  
+
                   <ul className="grid grid-cols-2 gap-4">
                     {service.features.map((feat, i) => (
                       <li key={i} className="flex items-center gap-3 text-sm text-neutral-300">
@@ -137,7 +137,7 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Specialized Capabilities</h2>
             <p className="text-neutral-500 max-w-xl mx-auto">Going beyond standard construction to offer comprehensive lifecycle solutions.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {specialized.map((spec, i) => (
               <div key={i} className="bg-[#1a1a1a] p-8 border border-white/5 hover:border-accent/50 transition-colors group">
@@ -151,15 +151,15 @@ export default function ServicesPage() {
       </section>
 
       {/* 4. CTA */}
-      <section className="py-24 bg-black text-white text-center px-6 border-t border-white/10">
+      <section className="py-24 bg-accent text-black text-center px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">Ready to Build With Us?</h2>
-          <p className="text-neutral-300 font-medium mb-10 max-w-xl mx-auto">
+          <p className="text-black/80 font-medium mb-10 max-w-xl mx-auto">
             Discuss your next big project with our experts and let us lay the foundation for your success.
           </p>
-          <Link 
-            href="/contact" 
-            className="inline-flex items-center gap-3 bg-accent text-black hover:bg-white px-8 py-4 font-bold tracking-[0.15em] uppercase text-xs transition-colors"
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 bg-black text-white hover:bg-neutral-800 px-8 py-4 font-bold tracking-[0.15em] uppercase text-xs transition-colors"
           >
             Contact Us Today <ArrowRight className="w-4 h-4" />
           </Link>
