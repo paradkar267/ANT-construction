@@ -151,7 +151,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}
-            className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+            className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6"
           >
             <div>
               <span className="text-accent uppercase tracking-[0.25em] text-xs font-bold mb-4 block">Core Expertise</span>
@@ -159,7 +159,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-white/10 border border-white/10">
             {[
               { title: "Industrial", desc: "Large-scale factories, warehouses, and logistics hubs built for heavy operational loads.", icon: Factory },
               { title: "Commercial", desc: "Corporate towers, retail complexes, and hospitality venues engineered for impact.", icon: Building2 },
@@ -170,13 +170,13 @@ export default function Home() {
                 key={srv.title}
                 initial="hidden" whileInView="visible" viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: i * 0.1 } } }}
-                className="group relative p-10 border-r border-b border-white/10 last:border-r-0 hover:bg-white/5 transition-colors duration-500 overflow-hidden"
+                className="group relative p-8 md:p-10 bg-[#0a0a0a] hover:bg-neutral-900 transition-colors duration-500 overflow-hidden flex flex-col h-full"
               >
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-accent -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
-                <srv.icon className="w-10 h-10 text-neutral-500 group-hover:text-accent mb-6 transition-colors duration-500" />
-                <h3 className="text-xl font-bold font-heading mb-4">{srv.title}</h3>
-                <p className="text-sm text-neutral-400 leading-relaxed mb-6">{srv.desc}</p>
-                <Link href="/services" className="inline-flex items-center text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500 group-hover:text-white transition-colors mt-auto">
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-accent -translate-x-full group-hover:translate-x-0 transition-transform duration-500 z-10" />
+                <srv.icon className="w-10 h-10 text-neutral-500 group-hover:text-accent mb-6 transition-colors duration-500 relative z-10" />
+                <h3 className="text-xl font-bold font-heading mb-4 relative z-10">{srv.title}</h3>
+                <p className="text-sm text-neutral-400 leading-relaxed mb-6 relative z-10">{srv.desc}</p>
+                <Link href="/services" className="inline-flex items-center text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-500 group-hover:text-white transition-colors mt-auto relative z-10">
                   Explore <ArrowRight className="w-3 h-3 ml-2" />
                 </Link>
               </motion.div>
