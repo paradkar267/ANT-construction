@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Calendar } from "lucide-react";
@@ -45,15 +44,13 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="relative flex items-center">
-              <Image
-                src="/logo_transparent.png"
-                alt="AT Buildcon Logo"
-                width={180}
-                height={54}
-                className="h-10 w-auto object-contain transition-all duration-300"
-                priority
-              />
+            <Link href="/" className="relative flex items-center group">
+              <span className="font-heading font-bold text-2xl tracking-tighter text-white group-hover:text-accent transition-colors">
+                ANT<span className="text-accent group-hover:text-white transition-colors">.</span>
+              </span>
+              <span className="hidden sm:inline-block ml-2 text-xs font-semibold tracking-widest text-neutral-400 uppercase mt-1">
+                Construction
+              </span>
             </Link>
 
             {/* Desktop Nav Links */}

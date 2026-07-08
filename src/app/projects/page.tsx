@@ -8,58 +8,10 @@ import { MapPin, CheckCircle } from "lucide-react";
 import NetflixProjectSlider from "@/components/NetflixProjectSlider";
 
 export default function ProjectsPage() {
-  const projects = [
-    {
-      id: 1,
-      title: "Sohamdhwani Smart Apartments",
-      img: "/projects/Sohamdhwani.png",
-      badge: "Completed",
-      type: "Residential Development",
-      desc: "Premium 3BHK smart apartments featuring modern architecture, intelligent home systems, and luxurious amenities. Designed for contemporary living with a focus on comfort, technology, and sustainable design in a Nagpur location.",
-      features: [
-        "3BHK Luxury Apartments",
-        "Smart Home Technology",
-        "Modern Architecture",
-        "Prime Location"
-      ],
-      loc: "Plot no 13, Sawarkar Nagar, Nagpur, Maharashtra"
-    },
-    {
-      id: 2,
-      title: "Tuljai Impreials",
-      img: "/projects/Tuljai.png",
-      badge: "Completed",
-      type: "Residential Development",
-      desc: "Elegant 3BHK residential complex offering sophisticated living spaces with premium finishes. The project combines functional design with aesthetic appeal, providing residents with a comfortable and upscale lifestyle in Wanjari Nagar.",
-      features: [
-        "3BHK Premium Residences",
-        "Sophisticated Design",
-        "Premium Finishes",
-        "Strategic Location"
-      ],
-      loc: "Plot No. 24, Wanjari Nagar, Nagpur, Maharashtra"
-    },
-    {
-      id: 3,
-      title: "Audumbar Sahniwas",
-      img: "/projects/Audumbar.png",
-      badge: "Completed",
-      type: "Residential Development",
-      desc: "Elegant 4BHK Luxurious Flat, Stylish Apartments in prime locations in Vidhya Nihar Pratap Nagar",
-      features: [
-        "4BHK Premium Residences",
-        "Luxurious Living Spaces",
-        "Premium Finishes",
-        "Prime Location"
-      ],
-      loc: "Plot No. 17, Vidhya Nihar Pratap Nagar, Nagpur, Maharashtra"
-    }
-  ];
-
   return (
-    <div className="bg-gray-50">
+    <div className="bg-[#111111] text-[#f5f5f5] font-sans selection:bg-accent selection:text-black">
       {/* 1. Page Banner */}
-      <section className="relative h-[400px] sm:h-[500px] flex items-center justify-center overflow-hidden bg-white">
+      <section className="relative h-[400px] sm:h-[500px] flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
         <motion.div
           initial={{ scale: 1.15, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -67,10 +19,10 @@ export default function ProjectsPage() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/projects-hero.jpg"
+            src="/project.png"
             alt="AT Buildcon Portfolios Banner"
             fill
-            className="object-cover brightness-90"
+            className="object-cover brightness-50"
             priority
           />
         </motion.div>
@@ -97,7 +49,7 @@ export default function ProjectsPage() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm sm:text-lg font-light opacity-90 max-w-xl mx-auto font-sans tracking-wide"
+            className="text-sm sm:text-lg font-light opacity-90 max-w-xl mx-auto font-sans tracking-wide text-neutral-300"
           >
             Discover our completed premium housing collections across prime locations.
           </motion.p>
@@ -105,11 +57,11 @@ export default function ProjectsPage() {
       </section>
 
       {/* 2. Headline Intro */}
-      <section className="py-20 px-6 lg:px-8 text-center bg-gray-50">
+      <section className="py-24 px-6 lg:px-8 text-center bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal direction="up">
             <span className="text-accent text-xs font-semibold uppercase tracking-[0.3em] mb-4 block">Developments</span>
-            <h2 className="text-3xl sm:text-5xl font-semibold font-heading text-[#0f172a] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-semibold font-heading text-white tracking-tight">
               Curated Masterpieces
             </h2>
             <div className="h-[2px] w-24 bg-accent mx-auto mt-6" />

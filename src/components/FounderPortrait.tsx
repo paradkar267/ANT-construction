@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -36,6 +37,8 @@ interface FounderProps {
 }
 
 export default function FounderPortrait({ founder, index }: FounderProps) {
+  const [imgError, setImgError] = useState(false);
+
   // Base delay for staggering between multiple founders
   const baseDelay = index * 0.4;
 
@@ -44,7 +47,7 @@ export default function FounderPortrait({ founder, index }: FounderProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="relative h-[500px] w-full rounded-3xl overflow-hidden border border-gray-200 shadow-2xl group text-left flex flex-col justify-end"
+      className="relative h-[500px] w-full rounded-3xl overflow-hidden border border-gray-200 shadow-2xl group text-left flex flex-col justify-end bg-neutral-900"
     >
       {/* Portrait Image with B&W to Color transition */}
       <motion.div
@@ -55,12 +58,22 @@ export default function FounderPortrait({ founder, index }: FounderProps) {
         transition={{ duration: 2, ease: "easeOut", delay: baseDelay }}
         className="absolute inset-0 w-full h-full"
       >
-        <Image
-          src={founder.img}
-          alt={founder.name}
-          fill
-          className="object-cover object-top"
-        />
+        {imgError ? (
+          <div className="w-full h-full flex items-center justify-center bg-neutral-900 text-neutral-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+        ) : (
+          <Image
+            src={founder.img}
+            alt={founder.name}
+            fill
+            className="object-cover object-top"
+            onError={() => setImgError(true)}
+          />
+        )}
       </motion.div>
 
       {/* Cinematic Gradient overlay */}

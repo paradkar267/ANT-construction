@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Play, Info } from "lucide-react";
+import { MapPin, ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -41,141 +41,129 @@ const projects = [
 
 export default function NetflixProjectSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const nextSlide = useCallback(() => {
     setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   }, []);
 
+  const prevSlide = useCallback(() => {
+    setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  }, []);
+
   useEffect(() => {
-    const interval = setInterval(nextSlide, 2300); // Every 2.3 seconds
+    if (isPaused) return;
+    const interval = setInterval(nextSlide, 6000); // Slower, 6 seconds
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, [nextSlide, isPaused]);
 
   return (
-    <section className="relative h-[85vh] min-h-[700px] w-full bg-[#141414] overflow-hidden flex flex-col justify-end pb-24 font-sans">
-      {/* Background Image with Netflix-style fade */}
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={activeIndex}
-          className="absolute inset-0 w-full h-full"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-        >
-          <Image
-            src={projects[activeIndex].img}
-            alt={projects[activeIndex].title}
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          {/* Heavy vignettes for text readability (Netflix style) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#141414] via-[#141414]/50 to-transparent w-[80%]" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="w-full lg:w-[55%] max-w-2xl">
+    <section 
+      className="relative w-full bg-[#0a0a0a] overflow-hidden flex flex-col font-sans border-y border-white/5"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+        {/* Left Content Area (Dark Solid Background for perfect readability) */}
+        <div className="lg:col-span-5 bg-[#111111] z-20 flex flex-col justify-center px-8 md:px-12 pt-12 pb-32 relative border-r border-white/5">
           <AnimatePresence mode="wait">
             <motion.div
               key={`content-${activeIndex}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", staggerChildren: 0.1 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="max-w-xl"
             >
               {/* Badge & Type */}
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                className="flex items-center gap-3 mb-4"
-              >
-                <span className="bg-orange-500 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-accent text-[9px] font-bold uppercase tracking-[0.2em] border border-accent px-2 py-1">
                   {projects[activeIndex].badge}
                 </span>
-                <span className="text-gray-300 text-xs font-semibold uppercase tracking-widest drop-shadow-md">
+                <span className="text-neutral-400 text-[10px] font-semibold uppercase tracking-widest">
                   {projects[activeIndex].type}
                 </span>
-              </motion.div>
+              </div>
 
               {/* Title */}
-              <motion.h2 
-                initial={{ opacity: 0, y: 10 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-heading tracking-tight leading-tight mb-6 drop-shadow-2xl"
-              >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight leading-[1.1] mb-4">
                 {projects[activeIndex].title}
-              </motion.h2>
+              </h2>
 
               {/* Location */}
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                className="flex items-center gap-2 text-white font-semibold text-sm mb-6 drop-shadow-md"
-              >
-                <MapPin className="w-4 h-4 text-orange-500" />
+              <div className="flex items-center gap-2 text-neutral-300 font-medium text-sm mb-8">
+                <MapPin className="w-4 h-4 text-accent" />
                 {projects[activeIndex].loc}
-              </motion.div>
+              </div>
 
               {/* Description */}
-              <motion.p 
-                initial={{ opacity: 0, y: 10 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                className="text-gray-200 text-base md:text-lg font-light leading-relaxed mb-8 drop-shadow-lg"
-              >
+              <p className="text-neutral-400 text-base md:text-lg font-light leading-relaxed mb-10">
                 {projects[activeIndex].desc}
-              </motion.p>
+              </p>
 
               {/* Highlights */}
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                className="flex flex-wrap gap-4 mb-10"
-              >
+              <div className="grid grid-cols-2 gap-4 mb-12">
                 {projects[activeIndex].features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center text-sm text-white bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
-                    {feat}
+                  <div key={idx} className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 bg-accent mt-2 flex-shrink-0" />
+                    <span className="text-sm text-neutral-300">{feat}</span>
                   </div>
                 ))}
-              </motion.div>
+              </div>
 
-              {/* Buttons */}
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                className="flex gap-4"
-              >
+              {/* Action */}
+              <div>
                 <Link
                   href="/contact"
-                  className="flex items-center gap-2 bg-white text-black hover:bg-gray-200 font-bold px-8 py-3 rounded-md transition-colors text-sm md:text-base shadow-xl"
+                  className="inline-flex items-center gap-3 bg-accent text-black hover:bg-white font-bold tracking-[0.15em] uppercase text-xs px-8 py-4 transition-colors"
                 >
-                  <Play className="w-5 h-5 fill-current" />
-                  Inquire Now
+                  Inquire Now <ArrowUpRight className="w-4 h-4" />
                 </Link>
-              </motion.div>
+              </div>
             </motion.div>
           </AnimatePresence>
+
+          {/* Navigation Controls */}
+          <div className="absolute bottom-8 left-8 md:left-16 flex items-center gap-4">
+            <button 
+              onClick={prevSlide}
+              className="w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:border-accent hover:text-accent transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <div className="text-neutral-500 font-heading text-sm font-medium tracking-widest w-12 text-center">
+              0{activeIndex + 1} <span className="text-white/20">/</span> 0{projects.length}
+            </div>
+            <button 
+              onClick={nextSlide}
+              className="w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:border-accent hover:text-accent transition-colors"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
-        {/* Top Progress Bars (like Instagram/Netflix stories) */}
-        <div className="absolute top-[-40vh] md:top-[-50vh] left-6 lg:left-8 right-6 lg:right-8 flex gap-2 max-w-7xl mx-auto z-50">
-          {projects.map((_, idx) => (
-            <div 
-              key={idx} 
-              className="h-1 flex-1 bg-gray-600/50 overflow-hidden rounded-full cursor-pointer"
-              onClick={() => setActiveIndex(idx)}
+        {/* Right Image Area */}
+        <div className="lg:col-span-7 relative h-[50vh] lg:h-auto overflow-hidden bg-black">
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={`img-${activeIndex}`}
+              className="absolute inset-0 w-full h-full"
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
             >
-              <motion.div
-                className="h-full bg-white origin-left"
-                initial={{ width: "0%" }}
-                animate={{ width: activeIndex === idx ? "100%" : activeIndex > idx ? "100%" : "0%" }}
-                transition={{ duration: activeIndex === idx ? 2.3 : 0, ease: "linear" }}
+              <Image
+                src={projects[activeIndex].img}
+                alt={projects[activeIndex].title}
+                fill
+                className="object-cover"
+                priority
               />
-            </div>
-          ))}
+              <div className="absolute inset-0 bg-black/20" /> {/* Subtle darkening */}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

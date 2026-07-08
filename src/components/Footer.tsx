@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 
@@ -14,7 +13,7 @@ export default function Footer() {
       transition: {
         duration: 0.8,
         staggerChildren: 0.1,
-        ease: [0.16, 1, 0.3, 1] as any
+        ease: [0.16, 1, 0.3, 1]
       }
     }
   };
@@ -44,18 +43,16 @@ export default function Footer() {
         >
           {/* Brand Column */}
           <motion.div className="space-y-6" variants={itemVariants}>
-            <Link href="/" className="inline-block">
-              <Image
-                src="/logo_transparent.png"
-                alt="AT Buildcon Logo"
-                width={160}
-                height={48}
-                className="object-contain h-12 w-auto"
-                priority
-              />
+            <Link href="/" className="inline-block relative flex items-center group w-fit">
+              <span className="font-heading font-bold text-3xl tracking-tighter text-white group-hover:text-accent transition-colors">
+                ANT<span className="text-accent group-hover:text-white transition-colors">.</span>
+              </span>
+              <span className="hidden sm:inline-block ml-2 text-xs font-semibold tracking-widest text-neutral-400 uppercase mt-1">
+                Construction
+              </span>
             </Link>
-            <p className="text-xs leading-relaxed text-neutral-400">
-              Crafting architectural masterpieces and luxury residential environments with timeless details and impeccable construction quality.
+            <p className="text-sm leading-relaxed text-neutral-400">
+              Delivering high-end infrastructure, premium industrial facilities, and architectural masterpieces with unyielding precision and strength.
             </p>
             <div className="flex items-center space-x-4">
               {[
@@ -105,8 +102,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <motion.div className="space-y-6" variants={itemVariants}>
-            <h4 className="text-accent text-[10px] font-bold uppercase tracking-[0.2em]">Quick Links</h4>
-            <ul className="space-y-3 text-xs tracking-wider">
+            <h4 className="text-accent text-xs font-bold uppercase tracking-[0.2em]">Quick Links</h4>
+            <ul className="space-y-3 text-sm tracking-wider">
               {[
                 { label: "Home", href: "/" },
                 { label: "About", href: "/about" },
@@ -117,7 +114,7 @@ export default function Footer() {
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="hover:text-accent transition-colors duration-200 block py-0.5 uppercase text-[10px]">
+                  <Link href={link.href} className="hover:text-accent transition-colors duration-200 block py-0.5 uppercase text-xs">
                     {link.label}
                   </Link>
                 </li>
@@ -127,8 +124,8 @@ export default function Footer() {
 
           {/* Contact Details */}
           <motion.div className="space-y-6" variants={itemVariants}>
-            <h4 className="text-accent text-[10px] font-bold uppercase tracking-[0.2em]">Inquiries</h4>
-            <ul className="space-y-4 text-xs tracking-wider">
+            <h4 className="text-accent text-xs font-bold uppercase tracking-[0.2em]">Inquiries</h4>
+            <ul className="space-y-4 text-sm tracking-wider">
               <li className="flex gap-3">
                 <MapPin className="w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" />
                 <span className="text-neutral-400">Nagpur, Maharashtra, India</span>
@@ -141,8 +138,8 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center">
                 <Mail className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
-                <a href="mailto:info@atbuildcon.com" className="hover:text-accent transition-colors">
-                  info@atbuildcon.com
+                <a href="mailto:info@antconstruction.com" className="hover:text-accent transition-colors">
+                  info@antconstruction.com
                 </a>
               </li>
             </ul>
@@ -150,8 +147,8 @@ export default function Footer() {
 
           {/* Newsletter */}
           <motion.div className="space-y-6" variants={itemVariants}>
-            <h4 className="text-accent text-[10px] font-bold uppercase tracking-[0.2em]">Newsletter</h4>
-            <p className="text-xs text-neutral-400 leading-relaxed">
+            <h4 className="text-accent text-xs font-bold uppercase tracking-[0.2em]">Newsletter</h4>
+            <p className="text-sm text-neutral-400 leading-relaxed">
               Subscribe to receive exclusive previews of our upcoming luxury real estate portfolios.
             </p>
             <form onSubmit={handleSubscribe} className="relative flex items-center">
@@ -159,7 +156,7 @@ export default function Footer() {
                 type="email"
                 required
                 placeholder="Your email address"
-                className="w-full bg-white/5 border border-white/10 focus:border-accent rounded-none px-4 py-3 text-xs text-white placeholder-white/30 outline-none transition-all duration-300 pr-12"
+                className="w-full bg-white/5 border border-white/10 focus:border-accent rounded-none px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition-all duration-300 pr-12"
               />
               <button
                 type="submit"
@@ -174,13 +171,13 @@ export default function Footer() {
 
         {/* Bottom copyright and disclaimer */}
         <motion.div
-          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-wider text-neutral-500"
+          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs uppercase tracking-wider text-neutral-500"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p>© {new Date().getFullYear()} AT Buildcon. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ANT Construction. All rights reserved.</p>
           <div className="flex space-x-6">
             <Link href="/" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link href="/" className="hover:text-accent transition-colors">Terms of Use</Link>

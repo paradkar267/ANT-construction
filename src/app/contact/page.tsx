@@ -31,9 +31,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-[#111111] text-[#f5f5f5] font-sans selection:bg-accent selection:text-black">
       {/* 1. Page Banner */}
-      <section className="relative h-[400px] sm:h-[500px] flex items-center justify-center overflow-hidden bg-white">
+      <section className="relative h-[400px] sm:h-[500px] flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
         <motion.div
           initial={{ scale: 1.15, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -41,10 +41,10 @@ export default function ContactPage() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/contact-image.jpg"
+            src="/contact.png"
             alt="Contact AT Buildcon"
             fill
-            className="object-cover brightness-90"
+            className="object-cover brightness-50"
             priority
           />
         </motion.div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm sm:text-lg font-light opacity-90 max-w-xl mx-auto font-sans tracking-wide"
+            className="text-sm sm:text-lg font-light opacity-90 max-w-xl mx-auto font-sans tracking-wide text-neutral-300"
           >
             Schedule private viewings, request specifications, or speak with our directors.
           </motion.p>
@@ -79,7 +79,7 @@ export default function ContactPage() {
       </section>
 
       {/* 2. Headline Intro */}
-      <section className="py-20 px-6 lg:px-8 text-center bg-[#0f172a]">
+      <section className="py-20 px-6 lg:px-8 text-center bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal direction="up">
             <span className="text-accent text-xs font-semibold uppercase tracking-[0.3em] mb-4 block">Inquiries</span>
@@ -92,13 +92,13 @@ export default function ContactPage() {
       </section>
 
       {/* 3. Detail Columns & Form */}
-      <section className="pb-32 bg-[#0f172a] px-6 lg:px-8">
+      <section className="pb-32 bg-[#111111] px-6 lg:px-8 border-t border-white/5 pt-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* Column 1: Details & Google Map */}
           <ScrollReveal direction="left" className="space-y-12 text-left">
             <div className="space-y-4">
               <h3 className="text-3xl font-semibold text-white font-heading">Client Advisory & Support</h3>
-              <p className="text-gray-400 leading-relaxed font-sans text-sm">
+              <p className="text-neutral-400 leading-relaxed font-sans text-sm">
                 Our dedicated team is available to assist you with detailed project specifications, arrange exclusive site visits, and discuss investment opportunities. Connect with us to discover the A&T Buildcon difference.
               </p>
             </div>
@@ -111,14 +111,14 @@ export default function ContactPage() {
                 { title: "Headquarters", details: "Nagpur, Maharashtra", sub: "Visit by appointment only", icon: <MapPin className="w-5 h-5" /> },
                 { title: "Office Hours", details: "Mon - Sat, 9AM - 7PM", sub: "Closed on public holidays", icon: <Clock className="w-5 h-5" /> },
               ].map((item) => (
-                <div key={item.title} className="flex gap-4 items-start p-5 bg-white/5 border border-white/10 rounded-2xl shadow-sm">
-                  <div className="text-accent bg-[#0f172a] w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm border border-white/10">
+                <div key={item.title} className="flex gap-4 items-start p-5 bg-[#1a1a1a] border border-white/5 rounded-2xl shadow-sm hover:border-accent/30 transition-colors">
+                  <div className="text-accent bg-black w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm border border-white/10">
                     {item.icon}
                   </div>
                   <div>
                     <h4 className="font-semibold text-white text-sm uppercase tracking-wider font-heading">{item.title}</h4>
-                    <p className="text-gray-300 font-medium text-sm mt-1">{item.details}</p>
-                    <p className="text-gray-500 text-xs mt-0.5 font-sans">{item.sub}</p>
+                    <p className="text-neutral-300 font-medium text-sm mt-1">{item.details}</p>
+                    <p className="text-neutral-500 text-xs mt-0.5 font-sans">{item.sub}</p>
                   </div>
                 </div>
               ))}
@@ -133,103 +133,106 @@ export default function ContactPage() {
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                className="filter grayscale contrast-110"
+                className="filter grayscale contrast-110 opacity-70 hover:opacity-100 transition-opacity duration-500"
               />
             </div>
           </ScrollReveal>
 
           {/* Column 2: Elegant Form */}
-          <ScrollReveal direction="right" className="bg-white border border-gray-200 p-8 sm:p-12 rounded-3xl shadow-xl text-left">
-            <h3 className="text-2xl font-semibold text-[#0f172a] font-heading mb-2">Consultation Booking</h3>
-            <p className="text-gray-500 text-sm mb-8 font-sans">
-              Enter your details, and a dedicated partnership associate will confirm your site visit slot.
-            </p>
+          <ScrollReveal direction="right" className="bg-[#1a1a1a] border border-white/5 p-8 sm:p-12 rounded-3xl shadow-2xl text-left relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+            <div className="relative z-10">
+              <h3 className="text-2xl font-semibold text-white font-heading mb-2">Consultation Booking</h3>
+              <p className="text-neutral-400 text-sm mb-8 font-sans">
+                Enter your details, and a dedicated partnership associate will confirm your site visit slot.
+              </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-gray-600 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="name">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
-                  placeholder="E.g., Devendra Varma"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-gray-50 border border-gray-200 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-[#0f172a] outline-none transition-all duration-300"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-neutral-400 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="name">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    placeholder="E.g., Devendra Varma"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-[#111111] border border-white/10 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-white outline-none transition-all duration-300 placeholder:text-neutral-600"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-gray-600 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="phone">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  required
-                  placeholder="E.g., +91 99999 99999"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full bg-gray-50 border border-gray-200 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-[#0f172a] outline-none transition-all duration-300"
-                />
-              </div>
+                <div>
+                  <label className="block text-neutral-400 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="phone">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    required
+                    placeholder="E.g., +91 99999 99999"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full bg-[#111111] border border-white/10 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-white outline-none transition-all duration-300 placeholder:text-neutral-600"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-gray-600 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="email">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="E.g., name@domain.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-gray-50 border border-gray-200 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-[#0f172a] outline-none transition-all duration-300"
-                />
-              </div>
+                <div>
+                  <label className="block text-neutral-400 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="email">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="E.g., name@domain.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-[#111111] border border-white/10 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-white outline-none transition-all duration-300 placeholder:text-neutral-600"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-gray-600 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="projectType">
-                  Preferred Property Portfolio
-                </label>
-                <select
-                  id="projectType"
-                  value={formData.projectType}
-                  onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full bg-gray-50 border border-gray-200 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-[#0f172a] outline-none transition-all duration-300"
+                <div>
+                  <label className="block text-neutral-400 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="projectType">
+                    Preferred Property Portfolio
+                  </label>
+                  <select
+                    id="projectType"
+                    value={formData.projectType}
+                    onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                    className="w-full bg-[#111111] border border-white/10 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-white outline-none transition-all duration-300"
+                  >
+                    <option value="Sohamdhwani Smart Apartments">Sohamdhwani Smart Apartments</option>
+                    <option value="Tuljai Impreials">Tuljai Impreials</option>
+                    <option value="Audumbar Sahniwas">Audumbar Sahniwas</option>
+                    <option value="Other Residential Development">Other Residential Space</option>
+                    <option value="Commercial Space">Commercial Development</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-neutral-400 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="details">
+                    Structural & Design Brief *
+                  </label>
+                  <textarea
+                    id="details"
+                    required
+                    rows={4}
+                    placeholder="Tell us about your spatial needs or visit preferences..."
+                    value={formData.details}
+                    onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                    className="w-full bg-[#111111] border border-white/10 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-white outline-none transition-all duration-300 resize-none placeholder:text-neutral-600"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-accent hover:bg-transparent border border-accent text-black hover:text-accent font-bold tracking-widest uppercase text-xs py-4 rounded-full transition-all duration-500 shadow-lg hover:shadow-none"
                 >
-                  <option value="Sohamdhwani Smart Apartments">Sohamdhwani Smart Apartments</option>
-                  <option value="Tuljai Impreials">Tuljai Impreials</option>
-                  <option value="Audumbar Sahniwas">Audumbar Sahniwas</option>
-                  <option value="Other Residential Development">Other Residential Space</option>
-                  <option value="Commercial Space">Commercial Development</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-600 font-semibold mb-2 text-xs uppercase tracking-wider" htmlFor="details">
-                  Structural & Design Brief *
-                </label>
-                <textarea
-                  id="details"
-                  required
-                  rows={4}
-                  placeholder="Tell us about your spatial needs or visit preferences..."
-                  value={formData.details}
-                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                  className="w-full bg-gray-50 border border-gray-200 focus:border-accent rounded-xl px-4 py-3.5 text-sm text-[#0f172a] outline-none transition-all duration-300 resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-accent hover:bg-transparent border border-accent text-[#0f172a] hover:text-accent font-semibold tracking-widest uppercase text-xs py-4 rounded-full transition-all duration-500 shadow-lg hover:shadow-none"
-              >
-                Schedule Private Consultation
-              </button>
-            </form>
+                  Schedule Private Consultation
+                </button>
+              </form>
+            </div>
           </ScrollReveal>
         </div>
       </section>
