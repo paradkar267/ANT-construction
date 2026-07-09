@@ -21,8 +21,6 @@ export const metadata: Metadata = {
     "ANT Construction delivers world-class infrastructure and luxury real estate with precision, strength, and sophisticated design.",
 };
 
-import Preloader from "@/components/Preloader";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,7 +32,6 @@ export default function RootLayout({
       className={`${interBody.variable} ${interHeading.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-gray-900 overflow-x-hidden">
-        <Preloader />
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
