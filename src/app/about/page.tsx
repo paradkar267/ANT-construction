@@ -118,7 +118,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="absolute bottom-4 right-4 md:bottom-10 md:-right-16 bg-gray-900/95 backdrop-blur-xl p-8 md:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] border-l-4 border-l-accent rounded-r-lg max-w-[240px] md:max-w-[300px] z-10 hover:-translate-y-2 transition-transform duration-500"
+              className="relative mt-8 md:mt-0 md:absolute md:bottom-10 md:-right-16 bg-gray-900/95 backdrop-blur-xl p-8 md:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] border-l-4 border-l-accent rounded-r-lg w-full md:max-w-[300px] z-10 hover:-translate-y-2 transition-transform duration-500"
             >
               <h3 className="text-6xl font-bold font-heading text-white mb-2 flex items-baseline">
                 <AnimatedCounter to={15} /><span className="text-accent ml-1">+</span>
