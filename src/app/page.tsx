@@ -190,15 +190,14 @@ export default function Home() {
       <ProjectGallery />
 
       {/* 5. Why Choose Us */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/hero-image.jpg')] bg-cover bg-center opacity-5 grayscale mix-blend-overlay pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="text-center max-w-2xl mx-auto mb-16">
+      <section className="py-24 bg-gray-50 border-y border-black/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="mb-16">
             <span className="text-accent uppercase tracking-[0.25em] text-xs font-bold mb-4 block">The ANT Advantage</span>
-            <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">Built on Solid Ground</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-heading">Built on Solid Ground</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: "Uncompromising Safety", desc: "Rigorous safety protocols exceeding OSHA standards, ensuring zero-incident project sites.", icon: ShieldCheck },
               { title: "Precision & Quality", desc: "Utilization of advanced surveying and high-grade materials for absolute structural integrity.", icon: Award },
@@ -208,10 +207,10 @@ export default function Home() {
                 key={feature.title}
                 initial="hidden" whileInView="visible" viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: i * 0.2 } } }}
-                className="text-center"
+                className="group bg-white border border-black/5 rounded-2xl p-10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-20 h-20 mx-auto bg-black/5 rounded-full flex items-center justify-center mb-6 border border-black/10 group hover:border-accent transition-colors duration-500">
-                  <feature.icon className="w-8 h-8 text-accent" />
+                <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 border border-accent/20 group-hover:bg-accent group-hover:border-accent transition-colors duration-300">
+                  <feature.icon className="w-7 h-7 text-accent group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3 className="text-xl font-bold font-heading mb-4">{feature.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{feature.desc}</p>
@@ -228,12 +227,13 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">Our Methodology</h2>
+            <span className="text-accent uppercase tracking-[0.25em] text-xs font-bold mb-4 block">How We Work</span>
+            <h2 className="text-4xl md:text-5xl font-bold font-heading">Our Methodology</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
             {/* Connecting Line (Desktop) */}
-            <div className="hidden md:block absolute top-[45px] left-[12%] right-[12%] h-[1px] bg-white/20 z-0" />
+            <div className="hidden md:block absolute top-[46px] left-[14%] right-[14%] h-[1px] bg-black/10 z-0" />
 
             {[
               { step: "01", title: "Consultation", desc: "In-depth analysis of requirements, site feasibility, and project scope.", icon: PenTool },
@@ -245,14 +245,14 @@ export default function Home() {
                 key={proc.step}
                 initial="hidden" whileInView="visible" viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: i * 0.15 } } }}
-                className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left"
+                className="relative z-10 flex flex-col items-center text-center group"
               >
-                <div className="w-24 h-24 bg-white border border-black/20 rounded-full flex flex-col items-center justify-center mb-6 text-accent">
+                <div className="w-24 h-24 bg-white border-2 border-black/10 group-hover:border-accent rounded-full flex flex-col items-center justify-center mb-6 text-accent shadow-sm transition-colors duration-300">
                   <proc.icon className="w-6 h-6 mb-1" />
-                  <span className="font-heading font-bold">{proc.step}</span>
+                  <span className="font-heading font-bold text-sm">{proc.step}</span>
                 </div>
                 <h3 className="text-xl font-bold font-heading mb-3">{proc.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed max-w-[250px]">{proc.desc}</p>
+                <p className="text-gray-500 text-sm leading-relaxed max-w-[220px]">{proc.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -262,36 +262,39 @@ export default function Home() {
 
 
       {/* 9. Contact CTA */}
-      <section className="py-24 bg-white text-gray-900 border-t border-black/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-24 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
-            <h2 className="text-4xl md:text-6xl font-bold font-heading mb-6 tracking-tight">Ready to build?</h2>
-            <p className="text-lg font-medium mb-10 max-w-md">Partner with ANT Construction for your next major infrastructure or real estate development.</p>
-            <ul className="space-y-4 mb-10 font-medium">
-              <li className="flex gap-4 items-center"><Phone className="w-5 h-5" /> +91 98227 06480</li>
-              <li className="flex gap-4 items-center"><Mail className="w-5 h-5" /> info@antconstruction.com</li>
-              <li className="flex gap-4 items-center"><MapPin className="w-5 h-5" /> Nagpur, Maharashtra, India</li>
+            <span className="text-accent uppercase tracking-[0.25em] text-xs font-bold mb-4 block">Get In Touch</span>
+            <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 tracking-tight">Ready to build something great?</h2>
+            <p className="text-gray-400 font-light mb-10 max-w-md leading-relaxed">Partner with ANT Construction for your next major infrastructure or real estate development project.</p>
+            <ul className="space-y-5 mb-10">
+              <li className="flex gap-4 items-center text-gray-300"><Phone className="w-5 h-5 text-accent" /> +91 98227 06480</li>
+              <li className="flex gap-4 items-center text-gray-300"><Mail className="w-5 h-5 text-accent" /> info@antconstruction.com</li>
+              <li className="flex gap-4 items-center text-gray-300"><MapPin className="w-5 h-5 text-accent" /> Nagpur, Maharashtra, India</li>
             </ul>
           </motion.div>
 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}
-            className="bg-white p-10 text-black shadow-2xl"
+            className="bg-white p-10 rounded-2xl shadow-2xl text-black"
           >
-            <form className="space-y-6">
+            <h3 className="text-2xl font-bold font-heading mb-2">Send an Inquiry</h3>
+            <p className="text-gray-500 text-sm mb-8">Our team will get back to you within 1 business day.</p>
+            <form className="space-y-5">
               <div>
                 <label className="block text-xs uppercase tracking-widest font-bold text-gray-400 mb-2">Name</label>
-                <input type="text" className="w-full bg-gray-50 border border-gray-200 focus:border-accent p-4 outline-none transition-colors text-black placeholder:text-gray-500" placeholder="John Doe" />
+                <input type="text" className="w-full bg-gray-50 border border-gray-200 focus:border-accent rounded-xl p-4 outline-none transition-colors text-black placeholder:text-gray-400" placeholder="Your full name" />
               </div>
               <div>
                 <label className="block text-xs uppercase tracking-widest font-bold text-gray-400 mb-2">Email</label>
-                <input type="email" className="w-full bg-gray-50 border border-gray-200 focus:border-accent p-4 outline-none transition-colors text-black placeholder:text-gray-500" placeholder="john@company.com" />
+                <input type="email" className="w-full bg-gray-50 border border-gray-200 focus:border-accent rounded-xl p-4 outline-none transition-colors text-black placeholder:text-gray-400" placeholder="your@email.com" />
               </div>
               <div>
                 <label className="block text-xs uppercase tracking-widest font-bold text-gray-400 mb-2">Project Scope</label>
-                <textarea rows={4} className="w-full bg-gray-50 border border-gray-200 focus:border-accent p-4 outline-none transition-colors resize-none text-black placeholder:text-gray-500" placeholder="Briefly describe your project..." />
+                <textarea rows={4} className="w-full bg-gray-50 border border-gray-200 focus:border-accent rounded-xl p-4 outline-none transition-colors resize-none text-black placeholder:text-gray-400" placeholder="Briefly describe your project..." />
               </div>
-              <button type="button" className="w-full bg-accent hover:bg-white text-black hover:text-gray-900 font-bold uppercase tracking-[0.15em] text-xs py-4 transition-colors">
+              <button type="button" className="w-full bg-accent hover:bg-accent-hover text-black font-bold uppercase tracking-[0.15em] text-xs py-4 rounded-xl transition-colors">
                 Submit Inquiry
               </button>
             </form>
