@@ -53,12 +53,12 @@ export default function Home() {
             alt="Premium Infrastructure"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-[85%_center] md:object-center"
           />
         </motion.div>
         <div className="absolute inset-0 bg-white/10 z-0 pointer-events-none" />
         <div
-          className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-r from-white via-white/80 to-transparent z-0 pointer-events-none"
+          className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-r from-white/95 via-white/30 to-transparent md:from-white md:via-white/80 z-0 pointer-events-none"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full mt-20">
