@@ -68,8 +68,8 @@ export default function ServicesPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-white/20 z-0 pointer-events-none" />
-          <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-r from-white via-white/80 to-transparent z-0 pointer-events-none" />
+          <div className="absolute inset-0 bg-white/10 z-0 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-r from-white/95 via-white/30 to-transparent md:from-white md:via-white/80 z-0 pointer-events-none" />
         </motion.div>
 
         <div className="relative z-20 text-left text-gray-900 px-6 lg:px-12 mt-12 max-w-7xl mx-auto w-full">
