@@ -24,6 +24,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
@@ -36,15 +48,15 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-neutral-800 py-4 shadow-xl"
+          isScrolled || isMobileMenuOpen
+            ? "bg-white/95 backdrop-blur-md border-b border-black/10 py-4 shadow-xl"
             : "bg-transparent py-6 border-b border-black/10"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between relative">
             {/* Logo */}
-            <Link href="/" className="relative flex items-center group z-10">
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="relative flex items-center group z-10">
               <span className="font-heading font-bold text-2xl tracking-tighter text-gray-900 group-hover:text-accent transition-colors">
                 ANT<span className="text-accent group-hover:text-gray-900 transition-colors">.</span>
               </span>
@@ -83,7 +95,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle mobile menu"
-              className="lg:hidden p-2 rounded-none border border-black/20 text-gray-900 hover:bg-black/10 transition-colors"
+              className="lg:hidden relative z-50 p-2 rounded-none border border-black/20 text-gray-900 hover:bg-black/10 transition-colors bg-white/50 backdrop-blur-sm"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -95,30 +107,46 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-x-0 top-0 z-40 bg-white border-b border-neutral-800 pt-28 pb-10 px-6 shadow-2xl flex flex-col items-center gap-8"
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-40 bg-white pt-32 pb-10 px-6 flex flex-col justify-between"
           >
-            <nav className="flex flex-col items-center gap-6">
-              {navLinks.map((link) => {
+            <nav className="flex flex-col items-center gap-8 mt-10">
+              {navLinks.map((link, idx) => {
                 const isActive = pathname === link.href;
                 return (
-                  <Link
+                  <motion.div
                     key={link.label}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-sm tracking-[0.2em] uppercase font-semibold transition-all ${
-                      isActive ? "text-accent font-bold" : "text-gray-500 hover:text-gray-900"
-                    }`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + idx * 0.1, duration: 0.4 }}
                   >
-                    {link.label}
-                  </Link>
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-2xl sm:text-3xl tracking-[0.2em] uppercase font-heading transition-all ${
+                        isActive ? "text-accent font-bold" : "text-gray-400 hover:text-gray-900"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
                 );
               })}
             </nav>
 
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              transition={{ delay: 0.6 }}
+              className="text-center mt-auto pb-8 border-t border-black/10 pt-8"
+            >
+              <div className="text-gray-500 text-xs tracking-widest uppercase font-semibold mb-2">Inquiries</div>
+              <a href="tel:+919822706480" className="text-xl font-heading font-bold text-gray-900 block mb-1">+91 98227 06480</a>
+              <a href="mailto:info@antconstruction.com" className="text-gray-500 font-sans text-sm">info@antconstruction.com</a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
