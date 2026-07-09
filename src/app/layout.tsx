@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`${interBody.variable} ${interHeading.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#111111] text-[#f5f5f5] overflow-x-hidden">
+      <body className="min-h-full flex flex-col font-sans bg-white text-gray-900 overflow-x-hidden">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

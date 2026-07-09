@@ -20,35 +20,27 @@ interface Project {
 const projects: Project[] = [
   {
     id: "1",
-    title: "Apex Industrial Park",
-    location: "MIDC Butibori, Nagpur",
-    status: "Ongoing",
-    image: "/projects/Audumbar.png", // Reusing existing placeholder image
-    category: "Industrial",
-  },
-  {
-    id: "2",
-    title: "Lumina Corporate Tower",
-    location: "IT Park, Nagpur",
+    title: "Audumbar Sahniwas",
+    location: "Pratap Nagar, Nagpur",
     status: "Completed",
-    image: "/projects/Sohamdhwani.png", // Reusing existing placeholder image
-    category: "Commercial",
-  },
-  {
-    id: "3",
-    title: "The Obsidian Residences",
-    location: "Civil Lines, Nagpur",
-    status: "Ongoing",
-    image: "/projects/Tuljai.png", // Reusing existing placeholder image
+    image: "/projects/Audumbar.png",
     category: "Residential",
   },
   {
-    id: "4",
-    title: "Nexus Logistics Hub",
-    location: "Wardha Road",
+    id: "2",
+    title: "Sohamdhwani Smart Apartments",
+    location: "Sawarkar Nagar, Nagpur",
     status: "Completed",
-    image: "/projects/Audumbar.png", // Placeholder
-    category: "Infrastructure",
+    image: "/projects/Sohamdhwani.png",
+    category: "Residential",
+  },
+  {
+    id: "3",
+    title: "Tuljai Impreials",
+    location: "Wanjari Nagar, Nagpur",
+    status: "Completed",
+    image: "/projects/Tuljai.png",
+    category: "Residential",
   },
 ];
 
@@ -60,74 +52,65 @@ export default function ProjectGallery() {
   );
 
   return (
-    <section className="py-24 bg-[#111111]" id="projects">
+    <section className="py-24 bg-white" id="projects">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white font-heading mb-4">
+        <div className="flex flex-col items-center text-center mb-16 gap-6">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-heading mb-4">
               Featured Projects
             </h2>
-            <p className="text-neutral-400 max-w-xl text-sm leading-relaxed">
+            <p className="text-gray-500 text-sm leading-relaxed">
               Explore our portfolio of cutting-edge industrial facilities, luxury residences, and commercial landmarks built to stand the test of time.
             </p>
           </div>
-          
-          <div className="flex gap-4 border-b border-white/10 pb-2">
-            {["All", "Ongoing", "Completed"].map((status) => (
-              <button
-                key={status}
-                onClick={() => setFilter(status as ProjectStatus)}
-                className={`text-xs uppercase tracking-widest font-semibold pb-2 border-b-2 transition-all ${
-                  filter === status
-                    ? "text-accent border-accent"
-                    : "text-neutral-500 border-transparent hover:text-white"
-                }`}
-              >
-                {status}
-              </button>
-            ))}
-          </div>
         </div>
-
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <motion.div layout className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <AnimatePresence>
-            {filteredProjects.map((project) => (
+            {projects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.4 }}
-                className="group relative h-[400px] overflow-hidden bg-neutral-900"
+                className="group flex flex-col bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-all duration-500 rounded-2xl overflow-hidden"
               >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
+                {/* Image Section */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-50">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-white/90 backdrop-blur-sm text-gray-900 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full shadow-sm">
+                      {project.status}
+                    </span>
+                  </div>
+                </div>
                 
-                <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="flex justify-between items-end">
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-2 block">
-                        {project.category} • {project.status}
-                      </span>
-                      <h3 className="text-2xl font-bold text-white font-heading mb-2">
-                        {project.title}
-                      </h3>
-                      <div className="flex items-center text-neutral-300 text-xs">
-                        <MapPin className="w-3.5 h-3.5 mr-2 text-accent" />
-                        {project.location}
-                      </div>
+                {/* Content Section */}
+                <div className="p-8 flex flex-col flex-grow">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-3 block">
+                    {project.category}
+                  </span>
+                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900 font-heading mb-4">
+                    {project.title}
+                  </h3>
+                  
+                  <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
+                    <div className="flex items-center text-gray-500 font-medium text-xs">
+                      <MapPin className="w-3.5 h-3.5 mr-2 text-accent" />
+                      <span className="truncate max-w-[150px]">{project.location}</span>
                     </div>
                     <Link
                       href={`/projects`}
-                      className="w-12 h-12 bg-accent text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      className="w-10 h-10 rounded-full bg-gray-50 hover:bg-accent text-gray-900 hover:text-white flex items-center justify-center transition-colors duration-300"
                     >
-                      <ArrowRight className="w-5 h-5" />
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
@@ -139,7 +122,7 @@ export default function ProjectGallery() {
         <div className="mt-12 flex justify-center">
           <Link
             href="/projects"
-            className="border border-white hover:bg-accent hover:border-accent text-white hover:text-black font-bold tracking-[0.15em] uppercase text-xs px-8 py-4 transition-all duration-300 inline-flex items-center gap-3"
+            className="border border-gray-900 hover:bg-accent hover:border-accent text-gray-900 hover:text-black font-bold tracking-[0.15em] uppercase text-xs px-8 py-4 transition-all duration-300 inline-flex items-center gap-3"
           >
             View Full Portfolio <ArrowRight className="w-4 h-4" />
           </Link>

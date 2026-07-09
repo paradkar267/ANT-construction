@@ -36,15 +36,15 @@ const StatItem = ({ value, label, suffix = "" }: StatItemProps) => {
   }, [isInView, value]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center p-6 border border-white/5 bg-white/5 backdrop-blur-sm relative overflow-hidden group hover:bg-white/10 transition-colors duration-500">
+    <div ref={ref} className="flex flex-col items-center justify-center p-6 border border-black/5 bg-black/5 backdrop-blur-sm relative overflow-hidden group hover:bg-black/10 transition-colors duration-500">
       {/* Decorative accent */}
       <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
       
-      <div className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-2 flex items-baseline">
+      <div className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-gray-900 mb-2 flex items-baseline">
         {count}
         <span className="text-accent ml-1 text-2xl md:text-3xl">{suffix}</span>
       </div>
-      <div className="text-neutral-400 text-xs tracking-[0.2em] uppercase font-semibold text-center">
+      <div className="text-gray-500 text-xs tracking-[0.2em] uppercase font-semibold text-center">
         {label}
       </div>
     </div>
@@ -60,7 +60,7 @@ export default function StatsCounter() {
   ];
 
   return (
-    <section className="py-24 relative bg-[#0a0a0a]">
+    <section className="py-24 relative bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, idx) => (

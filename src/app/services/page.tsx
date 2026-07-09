@@ -38,7 +38,7 @@ const services = [
     desc: "Developing bespoke residential complexes and luxury villas that offer unparalleled comfort, elegance, and modern living amenities.",
     icon: HomeIcon,
     features: ["Smart Home Ready", "Bespoke Interiors", "Sustainable Design", "Prime Locations"],
-    image: "/projects/Audumbar.png"
+    image: "/two.png"
   }
 ];
 
@@ -51,40 +51,60 @@ const specialized = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-[#111111] text-[#f5f5f5] font-sans selection:bg-accent selection:text-black">
+    <div className="bg-white text-gray-900 font-sans selection:bg-accent selection:text-black">
 
       {/* 1. Hero Banner */}
-      <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden flex items-center justify-center pt-16 lg:pt-20">
-        <div className="absolute inset-0 z-0">
+      <section className="relative h-[400px] sm:h-[500px] flex items-center overflow-hidden bg-gray-50">
+        <motion.div
+          initial={{ scale: 1.15, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-0 z-0"
+        >
           <Image
-            src="/hero-image.jpg"
-            alt="Services Banner"
+            src="/hero.png"
+            alt="AT Buildcon Services Banner"
             fill
-            className="object-cover scale-105"
+            className="object-cover"
             priority
           />
-        </div>
-        <div className="absolute inset-0 bg-black/70 z-0" />
+          <div className="absolute inset-0 bg-white/20 z-0 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-r from-white via-white/80 to-transparent z-0 pointer-events-none" />
+        </motion.div>
 
-        <div className="relative z-10 text-center px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <span className="text-accent uppercase tracking-[0.3em] text-xs md:text-sm font-bold mb-4 block">Our Capabilities</span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-4 leading-tight">
-              Expertise & <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-600">Services</span>
-            </h1>
-            <p className="text-neutral-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed px-4">
-              Delivering uncompromising quality across industrial, commercial, and residential sectors.
-            </p>
-          </motion.div>
+        <div className="relative z-20 text-left text-gray-900 px-6 lg:px-12 mt-12 max-w-7xl mx-auto w-full">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="flex items-center gap-4 mb-6"
+            >
+              <div className="w-12 h-[2px] bg-accent" />
+              <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">Our Capabilities</span>
+            </motion.div>
+            <motion.h1
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-4xl sm:text-6xl font-bold font-heading mb-6 tracking-tight"
+            >
+              Expertise & Services
+            </motion.h1>
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-lg text-gray-600 max-w-xl leading-relaxed font-light"
+            >
+              Delivering uncompromising quality across industrial, commercial, and luxury residential sectors with absolute precision.
+            </motion.p>
+          </div>
         </div>
       </section>
 
       {/* 2. Main Services */}
-      <section className="py-16 lg:py-24 bg-[#0a0a0a]">
+      <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}
@@ -96,29 +116,29 @@ export default function ServicesPage() {
                 variants={fadeUpVariant}
                 className={`flex flex-col lg:flex-row gap-8 lg:gap-20 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
               >
-                <div className="w-full lg:w-1/2 relative aspect-[4/3] group overflow-hidden border border-white/5 rounded-sm">
+                <div className="w-full lg:w-1/2 relative aspect-[4/3] group overflow-hidden border border-black/5 rounded-sm">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-white/20 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
 
                 <div className="w-full lg:w-1/2">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-accent">
+                    <div className="w-12 h-12 bg-black/5 border border-black/10 rounded-full flex items-center justify-center text-accent">
                       <service.icon className="w-6 h-6" />
                     </div>
-                    <span className="text-neutral-500 font-heading font-bold tracking-widest">0{idx + 1}</span>
+                    <span className="text-gray-400 font-heading font-bold tracking-widest">0{idx + 1}</span>
                   </div>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-4 lg:mb-6">{service.title}</h2>
-                  <p className="text-neutral-400 text-sm sm:text-base leading-relaxed mb-6 lg:mb-8">{service.desc}</p>
+                  <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-6 lg:mb-8">{service.desc}</p>
 
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                     {service.features.map((feat, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm text-neutral-300">
+                      <li key={i} className="flex items-center gap-3 text-sm text-gray-600">
                         <ShieldCheck className="w-4 h-4 text-accent" /> {feat}
                       </li>
                     ))}
@@ -131,19 +151,19 @@ export default function ServicesPage() {
       </section>
 
       {/* 3. Specialized Capabilities */}
-      <section className="py-16 lg:py-24 bg-[#111111] border-y border-white/5">
+      <section className="py-16 lg:py-24 bg-white border-y border-black/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Specialized Capabilities</h2>
-            <p className="text-neutral-500 max-w-xl mx-auto text-sm sm:text-base">Going beyond standard construction to offer comprehensive lifecycle solutions.</p>
+            <p className="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">Going beyond standard construction to offer comprehensive lifecycle solutions.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {specialized.map((spec, i) => (
-              <div key={i} className="bg-[#1a1a1a] p-8 border border-white/5 hover:border-accent/50 transition-colors group">
+              <div key={i} className="bg-[#1a1a1a] p-8 border border-black/5 hover:border-accent/50 transition-colors group">
                 <spec.icon className="w-8 h-8 text-accent mb-6 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-bold font-heading mb-3">{spec.title}</h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">{spec.desc}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{spec.desc}</p>
               </div>
             ))}
           </div>
@@ -151,10 +171,10 @@ export default function ServicesPage() {
       </section>
 
       {/* 4. CTA */}
-      <section className="py-16 lg:py-24 bg-black text-white text-center px-4 sm:px-6 border-t border-white/10">
+      <section className="py-16 lg:py-24 bg-white text-gray-900 text-center px-4 sm:px-6 border-t border-black/10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4 lg:mb-6 leading-tight">Ready to Build With Us?</h2>
-          <p className="text-neutral-300 font-medium mb-8 lg:mb-10 max-w-xl mx-auto text-sm sm:text-base px-2">
+          <p className="text-gray-600 font-medium mb-8 lg:mb-10 max-w-xl mx-auto text-sm sm:text-base px-2">
             Discuss your next big project with our experts and let us lay the foundation for your success.
           </p>
           <Link

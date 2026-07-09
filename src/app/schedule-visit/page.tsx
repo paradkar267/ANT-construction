@@ -70,7 +70,7 @@ export default function ScheduleVisitPage() {
           />
         </motion.div>
         
-        <div className="relative z-20 text-center text-white px-6 mt-12">
+        <div className="relative z-20 text-center text-gray-900 px-6 mt-12">
           <motion.span
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -146,13 +146,13 @@ export default function ScheduleVisitPage() {
                   className={`relative h-[180px] rounded-sm overflow-hidden cursor-pointer group transition-all duration-300 border-2 ${selectedProperty === prop.name ? 'border-accent shadow-lg' : 'border-transparent shadow-sm'}`}
                 >
                   <Image src={prop.img} alt={prop.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className={`absolute inset-0 transition-colors duration-300 ${selectedProperty === prop.name ? 'bg-black/30' : 'bg-black/50 group-hover:bg-black/40'}`} />
+                  <div className={`absolute inset-0 transition-colors duration-300 ${selectedProperty === prop.name ? 'bg-white/30' : 'bg-black/50 group-hover:bg-white/40'}`} />
                   <div className="absolute inset-0 p-4 flex flex-col justify-end">
-                    <h4 className="text-white font-bold text-sm drop-shadow-md">{prop.name}</h4>
-                    <p className="text-white/80 text-xs flex items-center gap-1 mt-1"><MapPin className="w-3 h-3" /> {prop.location}</p>
+                    <h4 className="text-gray-900 font-bold text-sm drop-shadow-md">{prop.name}</h4>
+                    <p className="text-gray-900/80 text-xs flex items-center gap-1 mt-1"><MapPin className="w-3 h-3" /> {prop.location}</p>
                   </div>
                   {selectedProperty === prop.name && (
-                    <div className="absolute top-3 right-3 bg-accent text-white p-1 rounded-full shadow-md z-10">
+                    <div className="absolute top-3 right-3 bg-accent text-gray-900 p-1 rounded-full shadow-md z-10">
                       <Check className="w-3 h-3" />
                     </div>
                   )}
@@ -265,7 +265,7 @@ export default function ScheduleVisitPage() {
               <div className="pt-4 text-center md:text-left">
                 <button
                   type="submit"
-                  className="bg-[#0B131F] text-white hover:bg-accent px-10 py-4 text-xs tracking-[0.2em] uppercase font-bold transition-colors duration-300"
+                  className="bg-[#0B131F] text-gray-900 hover:bg-accent px-10 py-4 text-xs tracking-[0.2em] uppercase font-bold transition-colors duration-300"
                 >
                   Confirm Request
                 </button>

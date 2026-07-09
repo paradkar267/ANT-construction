@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
+import { MapPin, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 const projects = [
   {
@@ -40,130 +39,79 @@ const projects = [
 ];
 
 export default function NetflixProjectSlider() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const nextSlide = useCallback(() => {
-    setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-  }, []);
-
-  const prevSlide = useCallback(() => {
-    setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  }, []);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(nextSlide, 6000); // Slower, 6 seconds
-    return () => clearInterval(interval);
-  }, [nextSlide, isPaused]);
-
   return (
-    <section 
-      className="relative w-full bg-[#0a0a0a] overflow-hidden flex flex-col font-sans border-y border-white/5"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
-        {/* Left Content Area (Dark Solid Background for perfect readability) */}
-        <div className="lg:col-span-5 bg-[#111111] z-20 flex flex-col justify-center px-8 md:px-12 pt-12 pb-32 relative border-r border-white/5">
-          <AnimatePresence mode="wait">
+    <section className="relative w-full bg-gray-50 py-24 px-6 lg:px-8 font-sans border-y border-black/5">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col gap-16 md:gap-24">
+          {projects.map((project, index) => (
             <motion.div
-              key={`content-${activeIndex}`}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="max-w-xl"
+              key={project.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className={`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 lg:gap-16 items-center`}
             >
-              {/* Badge & Type */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-accent text-[9px] font-bold uppercase tracking-[0.2em] border border-accent px-2 py-1">
-                  {projects[activeIndex].badge}
-                </span>
-                <span className="text-neutral-400 text-[10px] font-semibold uppercase tracking-widest">
-                  {projects[activeIndex].type}
-                </span>
-              </div>
-
-              {/* Title */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight leading-[1.1] mb-4">
-                {projects[activeIndex].title}
-              </h2>
-
-              {/* Location */}
-              <div className="flex items-center gap-2 text-neutral-300 font-medium text-sm mb-8">
-                <MapPin className="w-4 h-4 text-accent" />
-                {projects[activeIndex].loc}
-              </div>
-
-              {/* Description */}
-              <p className="text-neutral-400 text-base md:text-lg font-light leading-relaxed mb-10">
-                {projects[activeIndex].desc}
-              </p>
-
-              {/* Highlights */}
-              <div className="grid grid-cols-2 gap-4 mb-12">
-                {projects[activeIndex].features.map((feat, idx) => (
-                  <div key={idx} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-accent mt-2 flex-shrink-0" />
-                    <span className="text-sm text-neutral-300">{feat}</span>
+              {/* Image Side */}
+              <div className="w-full md:w-1/2">
+                <div className="relative w-full overflow-hidden rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-shadow duration-500 group bg-white border border-gray-100 p-2">
+                  <div className="relative w-full h-full overflow-hidden rounded-xl">
+                    <Image
+                      src={project.img}
+                      alt={project.title}
+                      width={1000}
+                      height={1000}
+                      className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-white/10 group-hover:bg-transparent transition-colors duration-500" />
                   </div>
-                ))}
+                  <div className="absolute top-6 left-6 flex gap-2 z-10">
+                    <span className="bg-accent text-white shadow-md text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                      {project.badge}
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              {/* Action */}
-              <div>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-3 bg-accent text-black hover:bg-white font-bold tracking-[0.15em] uppercase text-xs px-8 py-4 transition-colors"
-                >
-                  Inquire Now <ArrowUpRight className="w-4 h-4" />
-                </Link>
+              {/* Info Side */}
+              <div className="w-full md:w-1/2 flex flex-col justify-center py-4">
+                <span className="text-gray-400 text-[10px] font-semibold uppercase tracking-widest mb-4 block">
+                  {project.type}
+                </span>
+
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-heading tracking-tight mb-4 leading-[1.1]">
+                  {project.title}
+                </h3>
+
+                <div className="flex items-center gap-2 text-gray-500 font-medium text-sm mb-8">
+                  <MapPin className="w-4 h-4 text-accent" />
+                  {project.loc}
+                </div>
+
+                <p className="text-gray-500 text-base md:text-lg font-light leading-relaxed mb-10 max-w-xl">
+                  {project.desc}
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                  {project.features.map((feat, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-gray-600 font-medium">{feat}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-3 bg-accent hover:bg-gray-900 text-white font-bold tracking-[0.15em] uppercase text-xs px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  >
+                    Inquire Now <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation Controls */}
-          <div className="absolute bottom-8 left-8 md:left-16 flex items-center gap-4">
-            <button 
-              onClick={prevSlide}
-              className="w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:border-accent hover:text-accent transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <div className="text-neutral-500 font-heading text-sm font-medium tracking-widest w-12 text-center">
-              0{activeIndex + 1} <span className="text-white/20">/</span> 0{projects.length}
-            </div>
-            <button 
-              onClick={nextSlide}
-              className="w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:border-accent hover:text-accent transition-colors"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Right Image Area */}
-        <div className="lg:col-span-7 relative h-[50vh] lg:h-auto overflow-hidden bg-black">
-          <AnimatePresence initial={false}>
-            <motion.div
-              key={`img-${activeIndex}`}
-              className="absolute inset-0 w-full h-full"
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-            >
-              <Image
-                src={projects[activeIndex].img}
-                alt={projects[activeIndex].title}
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-black/20" /> {/* Subtle darkening */}
-            </motion.div>
-          </AnimatePresence>
+          ))}
         </div>
       </div>
     </section>

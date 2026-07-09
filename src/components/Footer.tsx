@@ -29,13 +29,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-neutral-300 py-20 border-t border-white/10 font-sans relative overflow-hidden">
+    <footer className="bg-white text-gray-600 py-20 border-t border-black/10 font-sans relative overflow-hidden">
       {/* Decorative luxury vector lines */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.03),transparent_40%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-white/10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-black/10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -44,14 +44,14 @@ export default function Footer() {
           {/* Brand Column */}
           <motion.div className="space-y-6" variants={itemVariants}>
             <Link href="/" className="inline-block relative flex items-center group w-fit">
-              <span className="font-heading font-bold text-3xl tracking-tighter text-white group-hover:text-accent transition-colors">
-                ANT<span className="text-accent group-hover:text-white transition-colors">.</span>
+              <span className="font-heading font-bold text-3xl tracking-tighter text-gray-900 group-hover:text-accent transition-colors">
+                ANT<span className="text-accent group-hover:text-gray-900 transition-colors">.</span>
               </span>
-              <span className="hidden sm:inline-block ml-2 text-xs font-semibold tracking-widest text-neutral-400 uppercase mt-1">
+              <span className="hidden sm:inline-block ml-2 text-xs font-semibold tracking-widest text-gray-500 uppercase mt-1">
                 Construction
               </span>
             </Link>
-            <p className="text-sm leading-relaxed text-neutral-400">
+            <p className="text-sm leading-relaxed text-gray-500">
               Delivering high-end infrastructure, premium industrial facilities, and architectural masterpieces with unyielding precision and strength.
             </p>
             <div className="flex items-center space-x-4">
@@ -92,7 +92,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href={social.href}
-                  className="w-8 h-8 rounded-none border border-white/10 flex items-center justify-center text-neutral-400 hover:text-accent hover:border-accent transition-all duration-300"
+                  className="w-8 h-8 rounded-none border border-black/10 flex items-center justify-center text-gray-500 hover:text-accent hover:border-accent transition-all duration-300"
                 >
                   {social.icon}
                 </a>
@@ -127,17 +127,17 @@ export default function Footer() {
             <h4 className="text-accent text-xs font-bold uppercase tracking-[0.2em]">Inquiries</h4>
             <ul className="space-y-4 text-sm tracking-wider">
               <li className="flex gap-3">
-                <MapPin className="w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" />
-                <span className="text-neutral-400">Nagpur, Maharashtra, India</span>
+                <MapPin className="w-3.5 h-3.5 text-gray-500 shrink-0 mt-0.5" />
+                <span className="text-gray-500">Nagpur, Maharashtra, India</span>
               </li>
               <li className="flex gap-3 items-center">
-                <Phone className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                <Phone className="w-3.5 h-3.5 text-gray-500 shrink-0" />
                 <a href="tel:+919822706480" className="hover:text-accent transition-colors">
                   +91 98227 06480
                 </a>
               </li>
               <li className="flex gap-3 items-center">
-                <Mail className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                <Mail className="w-3.5 h-3.5 text-gray-500 shrink-0" />
                 <a href="mailto:info@antconstruction.com" className="hover:text-accent transition-colors">
                   info@antconstruction.com
                 </a>
@@ -148,7 +148,7 @@ export default function Footer() {
           {/* Newsletter */}
           <motion.div className="space-y-6" variants={itemVariants}>
             <h4 className="text-accent text-xs font-bold uppercase tracking-[0.2em]">Newsletter</h4>
-            <p className="text-sm text-neutral-400 leading-relaxed">
+            <p className="text-sm text-gray-500 leading-relaxed">
               Subscribe to receive exclusive previews of our upcoming luxury real estate portfolios.
             </p>
             <form onSubmit={handleSubscribe} className="relative flex items-center">
@@ -156,7 +156,7 @@ export default function Footer() {
                 type="email"
                 required
                 placeholder="Your email address"
-                className="w-full bg-white/5 border border-white/10 focus:border-accent rounded-none px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition-all duration-300 pr-12"
+                className="w-full bg-black/5 border border-black/10 focus:border-accent rounded-none px-4 py-3 text-sm text-gray-900 placeholder-white/30 outline-none transition-all duration-300 pr-12"
               />
               <button
                 type="submit"
@@ -171,7 +171,7 @@ export default function Footer() {
 
         {/* Bottom copyright and disclaimer */}
         <motion.div
-          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs uppercase tracking-wider text-neutral-500"
+          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs uppercase tracking-wider text-gray-400"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

@@ -44,7 +44,7 @@ export default function AboutStorySlider() {
   }, [nextSlide]);
 
   return (
-    <section className="relative h-screen w-full bg-[#0a0a0a] overflow-hidden flex items-center font-sans">
+    <section className="relative h-screen w-full bg-gray-50 overflow-hidden flex items-center font-sans">
       <AnimatePresence initial={false}>
         <motion.div
           key={activeIndex}
@@ -62,7 +62,7 @@ export default function AboutStorySlider() {
             priority
           />
           {/* Subtle Dark Overlay */}
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-white/40" />
           {/* Left Gradient for Typography Readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
         </motion.div>
@@ -71,7 +71,7 @@ export default function AboutStorySlider() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 h-full flex items-center justify-between">
         
         {/* Editorial Typography (Left Aligned) */}
-        <div className="flex-1 max-w-2xl text-left text-white mt-20">
+        <div className="flex-1 max-w-2xl text-left text-gray-900 mt-20">
           <AnimatePresence mode="wait">
             <motion.div
               key={`text-${activeIndex}`}
@@ -97,10 +97,10 @@ export default function AboutStorySlider() {
         <div className="hidden md:flex flex-col justify-center items-end gap-6 h-full absolute right-8 top-0 bottom-0 z-20">
           {storySlides.map((_, index) => (
             <div key={`dot-${index}`} className="flex items-center gap-4">
-              <span className={`text-[10px] font-bold tracking-widest uppercase transition-colors duration-500 ${activeIndex === index ? 'text-white' : 'text-gray-500/50'}`}>
+              <span className={`text-[10px] font-bold tracking-widest uppercase transition-colors duration-500 ${activeIndex === index ? 'text-gray-900' : 'text-gray-500/50'}`}>
                 0{index + 1}
               </span>
-              <div className="relative w-1 h-12 bg-white/10 overflow-hidden">
+              <div className="relative w-1 h-12 bg-black/10 overflow-hidden">
                 <motion.div 
                   className="absolute bottom-0 left-0 w-full bg-orange-500 origin-bottom"
                   initial={{ height: "0%" }}

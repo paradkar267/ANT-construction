@@ -63,7 +63,7 @@ export default function ScrollytellingServices() {
   });
 
   return (
-    <div ref={containerRef} className="relative h-[600vh] w-full bg-black">
+    <div ref={containerRef} className="relative h-[600vh] w-full bg-white">
       {/* Sticky Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
         {/* Background Images */}
@@ -110,7 +110,7 @@ export default function ScrollytellingServices() {
                 >
                   <div className="flex items-center gap-4 mb-6">
                     <span className="text-gray-400 font-light font-heading text-xl">{service.id} —</span>
-                    <h4 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-heading leading-tight">
+                    <h4 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 font-heading leading-tight">
                       {service.title}
                     </h4>
                   </div>
@@ -131,7 +131,7 @@ export default function ScrollytellingServices() {
               >
                 <div 
                   className={`text-xs tracking-widest font-bold transition-colors duration-500 uppercase
-                    ${activeIndex === index ? 'text-white' : 'text-gray-500'}
+                    ${activeIndex === index ? 'text-gray-900' : 'text-gray-500'}
                   `}
                 >
                   <span className="opacity-50 mr-2">{service.id}</span>

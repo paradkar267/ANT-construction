@@ -47,7 +47,7 @@ export default function FounderPortrait({ founder, index }: FounderProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="relative h-[500px] w-full rounded-3xl overflow-hidden border border-gray-200 shadow-2xl group text-left flex flex-col justify-end bg-neutral-900"
+      className="relative h-[500px] w-full rounded-3xl overflow-hidden border border-gray-200 shadow-2xl group text-left flex flex-col justify-end bg-gray-100"
     >
       {/* Portrait Image with B&W to Color transition */}
       <motion.div
@@ -59,7 +59,7 @@ export default function FounderPortrait({ founder, index }: FounderProps) {
         className="absolute inset-0 w-full h-full"
       >
         {imgError ? (
-          <div className="w-full h-full flex items-center justify-center bg-neutral-900 text-neutral-800">
+          <div className="w-full h-full flex items-center justify-center bg-gray-100 text-neutral-800">
             <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
               <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
@@ -77,7 +77,7 @@ export default function FounderPortrait({ founder, index }: FounderProps) {
       </motion.div>
 
       {/* Cinematic Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-white/50 to-transparent opacity-90 z-10" />
 
       {/* Sequenced Content */}
       <div className="relative z-20 p-8 md:p-10 flex flex-col">
@@ -88,7 +88,7 @@ export default function FounderPortrait({ founder, index }: FounderProps) {
             visible: { opacity: 1, y: 0 }
           }}
           transition={{ duration: 0.8, ease: "easeOut", delay: baseDelay + 1.2 }}
-          className="text-3xl md:text-4xl font-bold text-white font-heading tracking-tight mb-2"
+          className="text-3xl md:text-4xl font-bold text-gray-900 font-heading tracking-tight mb-2"
         >
           {founder.name}
         </motion.h3>

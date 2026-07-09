@@ -79,13 +79,13 @@ export default function CoverflowCarousel() {
           <div className="flex gap-2">
             <button
               onClick={prevSlide}
-              className="w-12 h-12 border border-gray-300 bg-white/50 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:shadow-md transition-all rounded-full"
+              className="w-12 h-12 border border-gray-300 bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:shadow-md transition-all rounded-full"
             >
               <ChevronLeft className="w-5 h-5 text-gray-800" />
             </button>
             <button
               onClick={nextSlide}
-              className="w-12 h-12 border border-gray-300 bg-white/50 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:shadow-md transition-all rounded-full"
+              className="w-12 h-12 border border-gray-300 bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:shadow-md transition-all rounded-full"
             >
               <ChevronRight className="w-5 h-5 text-gray-800" />
             </button>
@@ -146,7 +146,7 @@ export default function CoverflowCarousel() {
                 
                 {/* Overlay */}
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 mix-blend-multiply"
+                  className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-black/40 to-black/10 mix-blend-multiply"
                   animate={{ opacity: isActive ? 1 : 0.3 }}
                   transition={{ duration: 0.5 }}
                 />
@@ -190,7 +190,7 @@ export default function CoverflowCarousel() {
                               transition: { duration: 0.15, ease: "easeIn" } 
                             }
                           }}
-                          className="text-white font-bold text-3xl sm:text-4xl font-heading mb-4 drop-shadow-md"
+                          className="text-gray-900 font-bold text-3xl sm:text-4xl font-heading mb-4 drop-shadow-md"
                         >
                           {item.title}
                         </motion.h4>
@@ -229,7 +229,7 @@ export default function CoverflowCarousel() {
                             }
                           }}
                         >
-                          <button className="group/btn flex items-center text-white text-xs sm:text-sm font-bold uppercase tracking-widest hover:text-orange-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 px-6 py-3 rounded-none w-fit cursor-pointer">
+                          <button className="group/btn flex items-center text-gray-900 text-xs sm:text-sm font-bold uppercase tracking-widest hover:text-orange-400 transition-colors bg-black/10 backdrop-blur-sm border border-black/20 px-6 py-3 rounded-none w-fit cursor-pointer">
                             Explore Project 
                             <ArrowRight className="w-4 h-4 ml-3 transform transition-transform duration-300 group-hover/btn:translate-x-2.5" />
                           </button>

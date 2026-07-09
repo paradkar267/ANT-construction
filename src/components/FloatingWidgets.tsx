@@ -42,7 +42,7 @@ export default function FloatingWidgets() {
         whileTap={{ scale: 0.95 }}
       >
         <svg
-          className="w-8 h-8 text-white fill-current"
+          className="w-8 h-8 text-gray-900 fill-current"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -56,7 +56,7 @@ export default function FloatingWidgets() {
           <motion.button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="fixed bottom-24 right-6 w-12 h-12 bg-orange-500 hover:bg-orange-600 rounded-full flex items-center justify-center text-white text-xl shadow-lg z-50 cursor-pointer"
+            className="fixed bottom-24 right-6 w-12 h-12 bg-orange-500 hover:bg-orange-600 rounded-full flex items-center justify-center text-gray-900 text-xl shadow-lg z-50 cursor-pointer"
             initial={{ scale: 0, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0, opacity: 0, y: 20 }}
