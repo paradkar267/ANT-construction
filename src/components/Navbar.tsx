@@ -107,26 +107,26 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-white pt-32 pb-10 px-8 flex flex-col justify-between"
+            className="fixed inset-0 z-40 bg-white pt-32 pb-10 px-6 flex flex-col justify-between"
           >
-            <nav className="flex flex-col items-start gap-8 mt-10">
+            <nav className="flex flex-col items-center gap-8 mt-10">
               {navLinks.map((link, idx) => {
                 const isActive = pathname === link.href;
                 return (
                   <motion.div
                     key={link.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 + idx * 0.1, duration: 0.4 }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`text-3xl sm:text-4xl tracking-wider uppercase font-heading transition-all ${
+                      className={`text-2xl sm:text-3xl tracking-[0.2em] uppercase font-heading transition-all ${
                         isActive ? "text-accent font-bold" : "text-gray-400 hover:text-gray-900"
                       }`}
                     >
@@ -141,10 +141,10 @@ export default function Navbar() {
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
               transition={{ delay: 0.6 }}
-              className="text-left mt-auto pb-8 border-t border-black/10 pt-8"
+              className="text-center mt-auto pb-8 border-t border-black/10 pt-8"
             >
               <div className="text-gray-500 text-xs tracking-widest uppercase font-semibold mb-2">Inquiries</div>
-              <a href="tel:+919822706480" className="text-2xl font-heading font-bold text-gray-900 block mb-1">+91 98227 06480</a>
+              <a href="tel:+919822706480" className="text-xl font-heading font-bold text-gray-900 block mb-1">+91 98227 06480</a>
               <a href="mailto:info@antconstruction.com" className="text-gray-500 font-sans text-sm">info@antconstruction.com</a>
             </motion.div>
           </motion.div>
