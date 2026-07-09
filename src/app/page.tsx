@@ -58,13 +58,13 @@ export default function Home() {
         </motion.div>
         <div className="absolute inset-0 bg-white/10 z-0 pointer-events-none" />
         <div
-          className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-r from-white via-white/80 to-transparent z-0 pointer-events-none"
+          className="absolute inset-y-0 left-0 w-full md:w-3/5 bg-gradient-to-r from-white via-white/90 to-transparent z-0 pointer-events-none"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full mt-20">
           <motion.div
             initial="hidden" animate="visible" variants={staggerContainer}
-            className="max-w-3xl"
+            className="max-w-2xl"
           >
             <motion.div variants={fadeUpVariant} className="flex items-center gap-4 mb-6">
               <div className="h-[1px] w-12 bg-accent"></div>
