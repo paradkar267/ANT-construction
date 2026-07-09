@@ -23,7 +23,7 @@ export default function AboutPage() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/abouts.png"
+            src="/ant.png"
             alt="AT Buildcon Premium Development site"
             fill
             className="object-cover"

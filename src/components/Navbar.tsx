@@ -42,9 +42,9 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative">
             {/* Logo */}
-            <Link href="/" className="relative flex items-center group">
+            <Link href="/" className="relative flex items-center group z-10">
               <span className="font-heading font-bold text-2xl tracking-tighter text-gray-900 group-hover:text-accent transition-colors">
                 ANT<span className="text-accent group-hover:text-gray-900 transition-colors">.</span>
               </span>
