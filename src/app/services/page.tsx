@@ -160,10 +160,10 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {specialized.map((spec, i) => (
-              <div key={i} className="bg-[#1a1a1a] p-8 border border-black/5 hover:border-accent/50 transition-colors group">
-                <spec.icon className="w-8 h-8 text-accent mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg font-bold font-heading mb-3">{spec.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{spec.desc}</p>
+              <div key={i} className="bg-gray-50 p-8 rounded-2xl border border-black/5 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                <spec.icon className="w-8 h-8 text-accent mb-6 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-lg font-bold font-heading mb-3 text-gray-900">{spec.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{spec.desc}</p>
               </div>
             ))}
           </div>
