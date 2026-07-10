@@ -78,7 +78,7 @@ export default function Home() {
               </h1>
             </motion.div>
 
-            <motion.p variants={fadeUpVariant} className="text-base md:text-lg text-gray-500 mb-10 max-w-xl font-light leading-relaxed">
+            <motion.p variants={fadeUpVariant} className="text-base md:text-lg text-gray-700 mb-10 max-w-xl leading-relaxed">
               We engineer state-of-the-art commercial facilities, luxury residences, and robust industrial frameworks that stand as pillars of modern progress.
             </motion.p>
 
@@ -126,14 +126,14 @@ export default function Home() {
                   The ANT Legacy
                 </motion.span>
               </div>
-              <motion.h2 variants={fadeUpVariant} className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 leading-[1.1] text-gray-900 tracking-tight">
-                Forging landmarks with <br className="hidden lg:block" />unyielding precision.
+              <motion.h2 variants={fadeUpVariant} className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 leading-[1.1] text-gray-900 tracking-tight max-w-3xl">
+                Forging landmarks with <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-400">unyielding precision.</span>
               </motion.h2>
               <div className="space-y-6 border-l-2 border-accent/20 pl-6 ml-2">
-                <motion.p variants={fadeUpVariant} className="text-gray-600 leading-relaxed text-lg font-light">
+                <motion.p variants={fadeUpVariant} className="text-gray-800 leading-relaxed text-lg">
                   ANT Construction is a premier tier-one builder specializing in complex, high-value infrastructure. Our methodology fuses heavy-duty engineering with meticulous architectural refinement.
                 </motion.p>
-                <motion.p variants={fadeUpVariant} className="text-gray-500 leading-relaxed">
+                <motion.p variants={fadeUpVariant} className="text-gray-700 leading-relaxed">
                   Whether constructing advanced industrial facilities or luxury residential high-rises, we bring an uncompromising standard of safety, material quality, and timeline execution to every project site.
                 </motion.p>
               </div>
@@ -156,7 +156,9 @@ export default function Home() {
           >
             <div>
               <span className="text-accent uppercase tracking-[0.25em] text-xs font-bold mb-4 block">Core Expertise</span>
-              <h2 className="text-4xl md:text-5xl font-bold font-heading">Our Services</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-heading text-gray-900">
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-400">Services</span>
+              </h2>
             </div>
           </motion.div>
 
@@ -176,7 +178,7 @@ export default function Home() {
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-accent -translate-x-full group-hover:translate-x-0 transition-transform duration-500 z-10" />
                 <srv.icon className="w-10 h-10 text-gray-400 group-hover:text-accent mb-6 transition-colors duration-500 relative z-10" />
                 <h3 className="text-xl font-bold font-heading mb-4 relative z-10">{srv.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-6 relative z-10">{srv.desc}</p>
+                <p className="text-sm text-gray-700 leading-relaxed mb-6 relative z-10">{srv.desc}</p>
                 <Link href="/services" className="inline-flex items-center text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:text-gray-900 transition-colors mt-auto relative z-10">
                   Explore <ArrowRight className="w-3 h-3 ml-2" />
                 </Link>
@@ -194,7 +196,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="mb-16">
             <span className="text-accent uppercase tracking-[0.25em] text-xs font-bold mb-4 block">The ANT Advantage</span>
-            <h2 className="text-4xl md:text-5xl font-bold font-heading">Built on Solid Ground</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-heading text-gray-900">
+              Built on <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-400">Solid Ground</span>
+            </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -213,7 +217,7 @@ export default function Home() {
                   <feature.icon className="w-7 h-7 text-accent group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3 className="text-xl font-bold font-heading mb-4">{feature.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{feature.desc}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -228,7 +232,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="mb-16">
             <span className="text-accent uppercase tracking-[0.25em] text-xs font-bold mb-4 block">How We Work</span>
-            <h2 className="text-4xl md:text-5xl font-bold font-heading">Our Methodology</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-heading text-gray-900">
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-400">Methodology</span>
+            </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
@@ -252,7 +258,7 @@ export default function Home() {
                   <span className="font-heading font-bold text-sm">{proc.step}</span>
                 </div>
                 <h3 className="text-xl font-bold font-heading mb-3">{proc.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed max-w-[220px]">{proc.desc}</p>
+                <p className="text-gray-700 text-sm leading-relaxed max-w-[220px]">{proc.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -266,8 +272,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
             <span className="text-accent uppercase tracking-[0.25em] text-xs font-bold mb-4 block">Get In Touch</span>
-            <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 tracking-tight">Ready to build something great?</h2>
-            <p className="text-gray-400 font-light mb-10 max-w-md leading-relaxed">Partner with ANT Construction for your next major infrastructure or real estate development project.</p>
+            <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 tracking-tight text-white">
+              Ready to build <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">something great?</span>
+            </h2>
+            <p className="text-gray-200 mb-10 max-w-md leading-relaxed">Partner with ANT Construction for your next major infrastructure or real estate development project.</p>
             <ul className="space-y-5 mb-10">
               <li className="flex gap-4 items-center text-gray-300"><Phone className="w-5 h-5 text-accent" /> +91 98227 06480</li>
               <li className="flex gap-4 items-center text-gray-300"><Mail className="w-5 h-5 text-accent" /> info@antconstruction.com</li>
@@ -280,7 +288,7 @@ export default function Home() {
             className="bg-white p-10 rounded-2xl shadow-2xl text-black"
           >
             <h3 className="text-2xl font-bold font-heading mb-2">Send an Inquiry</h3>
-            <p className="text-gray-500 text-sm mb-8">Our team will get back to you within 1 business day.</p>
+            <p className="text-gray-700 text-sm mb-8">Our team will get back to you within 1 business day.</p>
             <form className="space-y-5">
               <div>
                 <label className="block text-xs uppercase tracking-widest font-bold text-gray-400 mb-2">Name</label>

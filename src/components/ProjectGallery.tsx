@@ -57,9 +57,9 @@ export default function ProjectGallery() {
         <div className="flex flex-col items-center text-center mb-16 gap-6">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-heading mb-4">
-              Featured Projects
+              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-400">Projects</span>
             </h2>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-700 text-sm leading-relaxed">
               Explore our portfolio of cutting-edge industrial facilities, luxury residences, and commercial landmarks built to stand the test of time.
             </p>
           </div>

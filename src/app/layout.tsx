@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,7 +10,7 @@ const interBody = Inter({
   subsets: ["latin"],
 });
 
-const interHeading = Inter({
+const outfitHeading = Outfit({
   variable: "--font-oswald",
   subsets: ["latin"],
 });
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${interBody.variable} ${interHeading.variable} h-full antialiased scroll-smooth`}
+      className={`${interBody.variable} ${outfitHeading.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-gray-900 overflow-x-hidden">
         <Navbar />

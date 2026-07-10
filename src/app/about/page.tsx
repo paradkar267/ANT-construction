@@ -52,7 +52,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-4xl sm:text-6xl font-semibold font-heading tracking-tight text-gray-900"
               >
-                Building Legacies
+                Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-400">Legacies</span>
               </motion.h1>
               <motion.div
                 initial={{ width: 0 }}
@@ -66,7 +66,7 @@ export default function AboutPage() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-sm sm:text-lg font-light opacity-90 font-sans tracking-wide mt-6 text-gray-600"
+              className="text-sm sm:text-lg font-medium opacity-100 font-sans tracking-wide mt-6 text-gray-900 drop-shadow-md"
             >
               Crafting architectural masterpieces that balance structural supremacy, sustainable design, and unparalleled luxury.
             </motion.p>

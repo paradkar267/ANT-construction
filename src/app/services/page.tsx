@@ -31,7 +31,7 @@ const services = [
     desc: "From striking corporate headquarters to sprawling retail complexes, we build commercial spaces that reflect brand prestige and functionality.",
     icon: Building2,
     features: ["Modern Aesthetics", "Energy Efficient", "Scalable Layouts", "Premium Finishes"],
-    image: "/About.jpg"
+    image: "/commercial.jpg"
   },
   {
     title: "Luxury Residential",
@@ -89,13 +89,13 @@ export default function ServicesPage() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="text-4xl sm:text-6xl font-bold font-heading mb-6 tracking-tight"
             >
-              Expertise & Services
+              Expertise & <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-400">Services</span>
             </motion.h1>
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-lg text-gray-600 max-w-xl leading-relaxed font-light"
+              className="text-lg text-gray-900 max-w-xl leading-relaxed font-medium drop-shadow-md"
             >
               Delivering uncompromising quality across industrial, commercial, and luxury residential sectors with absolute precision.
             </motion.p>

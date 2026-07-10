@@ -68,13 +68,13 @@ export default function ContactPage() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="text-4xl sm:text-6xl font-semibold font-heading mb-4 tracking-tight"
             >
-              Contact Partners
+              Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-400">Partners</span>
             </motion.h1>
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-sm sm:text-lg font-light opacity-90 font-sans tracking-wide text-gray-600"
+              className="text-sm sm:text-lg font-medium opacity-100 font-sans tracking-wide text-gray-900 drop-shadow-md"
             >
               Schedule private viewings, request specifications, or speak with our directors.
             </motion.p>
