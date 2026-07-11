@@ -78,12 +78,12 @@ export default function ProjectGallery() {
                 className="group flex flex-col bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-all duration-500 rounded-2xl overflow-hidden"
               >
                 {/* Image Section */}
-                <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-50">
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-white">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-contain transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-white/90 backdrop-blur-sm text-gray-900 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full shadow-sm">
