@@ -85,11 +85,7 @@ export default function ProjectGallery() {
                     fill
                     className="object-contain transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-gray-900 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full shadow-sm">
-                      {project.status}
-                    </span>
-                  </div>
+
                 </div>
                 
                 {/* Content Section */}
