@@ -66,7 +66,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav Links */}
-            <nav className="hidden lg:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2">
+            <nav className="hidden lg:flex items-center space-x-8 ml-auto">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
