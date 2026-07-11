@@ -41,7 +41,7 @@ export default function ContactPage() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/contact.png"
+            src="/schedule.jpg"
             alt="Contact AT Buildcon"
             fill
             className="object-cover"
